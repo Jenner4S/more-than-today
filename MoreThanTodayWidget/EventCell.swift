@@ -24,14 +24,10 @@ class EventCell: UITableViewCell {
   private var eventPresenter: EventPresenter!
 
   @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var fromLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-
-  @IBOutlet weak var dateDetailsContainer: UIView!
-  @IBOutlet weak var spacingConstraint: NSLayoutConstraint!
-  @IBOutlet weak var eventDetailsWidthConstraint: NSLayoutConstraint!
 
   private func updateUI() {
     titleLabel.text = eventPresenter.title
@@ -39,12 +35,5 @@ class EventCell: UITableViewCell {
     dateLabel.text = eventPresenter.date
     fromLabel.text = eventPresenter.startTime
     toLabel.text = eventPresenter.endTime
-  }
-
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    let dateSize = dateDetailsContainer.frame.width
-    let spacingSize = spacingConstraint.constant
-    eventDetailsWidthConstraint.constant = frame.width - dateSize - spacingSize
   }
 }

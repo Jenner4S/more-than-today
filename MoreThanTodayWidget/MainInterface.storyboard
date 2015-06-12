@@ -28,16 +28,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Mb1-zJ-oJv" userLabel="Event Details">
-                                                    <rect key="frame" x="77" y="0.0" width="243" height="43"/>
+                                                    <rect key="frame" x="80" y="0.0" width="240" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner with Someone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDR-rP-BHM">
-                                                            <rect key="frame" x="0.0" y="3" width="243" height="21"/>
+                                                            <rect key="frame" x="0.0" y="4" width="240" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Restaurant Probably" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC9-hg-sgF">
-                                                            <rect key="frame" x="0.0" y="24" width="243" height="15"/>
+                                                            <rect key="frame" x="0.0" y="24" width="240" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -49,28 +49,27 @@
                                                         <constraint firstItem="UDR-rP-BHM" firstAttribute="leading" secondItem="Mb1-zJ-oJv" secondAttribute="leading" id="R33-U9-TVo"/>
                                                         <constraint firstItem="hC9-hg-sgF" firstAttribute="leading" secondItem="Mb1-zJ-oJv" secondAttribute="leading" id="Yfg-TG-lv2"/>
                                                         <constraint firstAttribute="bottom" secondItem="hC9-hg-sgF" secondAttribute="bottom" constant="4" id="ZXO-5W-60v"/>
-                                                        <constraint firstAttribute="width" constant="243" id="dTs-t0-LCI"/>
                                                         <constraint firstAttribute="trailing" secondItem="hC9-hg-sgF" secondAttribute="trailing" id="ncG-4m-Lxg"/>
                                                         <constraint firstAttribute="trailing" secondItem="UDR-rP-BHM" secondAttribute="trailing" id="vXh-a3-dxm"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WXv-Rn-g92" userLabel="Date Details">
-                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhT-dx-iOJ">
-                                                            <rect key="frame" x="0.0" y="8" width="65" height="15"/>
+                                                            <rect key="frame" x="0.0" y="8" width="65" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-ZD-9Sh">
-                                                            <rect key="frame" x="0.0" y="24" width="32" height="15"/>
+                                                            <rect key="frame" x="0.0" y="24" width="31.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2b-Mk-cOx">
-                                                            <rect key="frame" x="32" y="24" width="8" height="15"/>
+                                                            <rect key="frame" x="31" y="24" width="8" height="14.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="8" id="7yp-Nb-SiY"/>
                                                             </constraints>
@@ -79,7 +78,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-yY-ZJh">
-                                                            <rect key="frame" x="40" y="24" width="32" height="15"/>
+                                                            <rect key="frame" x="39" y="24" width="31.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -87,6 +86,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="72" id="8UP-5p-zvK"/>
                                                         <constraint firstItem="tGS-ZD-9Sh" firstAttribute="centerY" secondItem="p2b-Mk-cOx" secondAttribute="centerY" id="D6a-AS-Ck4"/>
                                                         <constraint firstItem="KJE-yY-ZJh" firstAttribute="leading" secondItem="p2b-Mk-cOx" secondAttribute="trailing" id="Hcc-AM-Nrq"/>
                                                         <constraint firstItem="KJE-yY-ZJh" firstAttribute="centerY" secondItem="p2b-Mk-cOx" secondAttribute="centerY" id="YI7-32-hVs"/>
@@ -111,12 +111,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="dateDetailsContainer" destination="WXv-Rn-g92" id="Rl0-lt-1Az"/>
                                             <outlet property="dateLabel" destination="vhT-dx-iOJ" id="zed-Vk-e4L"/>
-                                            <outlet property="eventDetailsWidthConstraint" destination="dTs-t0-LCI" id="ec5-wX-ARW"/>
                                             <outlet property="fromLabel" destination="tGS-ZD-9Sh" id="9SW-7k-NNF"/>
                                             <outlet property="locationLabel" destination="hC9-hg-sgF" id="krH-sB-Uyb"/>
-                                            <outlet property="spacingConstraint" destination="C7h-6d-J9M" id="bhw-u4-R5Q"/>
                                             <outlet property="titleLabel" destination="UDR-rP-BHM" id="siX-Uj-2iO"/>
                                             <outlet property="toLabel" destination="KJE-yY-ZJh" id="tzB-Pd-05F"/>
                                         </connections>

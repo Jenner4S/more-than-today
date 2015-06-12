@@ -14,8 +14,7 @@ class EventPresenter {
 
   lazy private var timeFormatter: NSDateFormatter = {
     let _formatter = NSDateFormatter()
-    _formatter.dateStyle = .NoStyle
-    _formatter.timeStyle = .ShortStyle
+    _formatter.dateFormat = "HH:mm"
     return _formatter
   }()
 
