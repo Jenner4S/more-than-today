@@ -19,6 +19,7 @@
 		092389D81B1D9D17000CC3D6 /* MoreThanTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 092389CB1B1D9D17000CC3D6 /* MoreThanTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		092389DE1B1D9D1F000CC3D6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092389DD1B1D9D1F000CC3D6 /* EventKit.framework */; };
 		092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092389DF1B1D9D53000CC3D6 /* EventCell.swift */; };
+		CA99DA841B2AF50A00267948 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99DA831B2AF50A00267948 /* EventPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		092389DD1B1D9D1F000CC3D6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		092389DF1B1D9D53000CC3D6 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		092389E11B1D9E8C000CC3D6 /* MoreThanTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanTodayWidget.entitlements; sourceTree = "<group>"; };
+		CA99DA831B2AF50A00267948 /* EventPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				092389D21B1D9D17000CC3D6 /* TodayViewController.swift */,
 				092389D41B1D9D17000CC3D6 /* MainInterface.storyboard */,
 				092389DF1B1D9D53000CC3D6 /* EventCell.swift */,
+				CA99DA831B2AF50A00267948 /* EventPresenter.swift */,
 				092389D01B1D9D17000CC3D6 /* Supporting Files */,
 			);
 			path = MoreThanTodayWidget;
@@ -345,6 +348,7 @@
 			files = (
 				092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */,
 				092389D31B1D9D17000CC3D6 /* TodayViewController.swift in Sources */,
+				CA99DA841B2AF50A00267948 /* EventPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,9 +475,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoreThanToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -482,9 +488,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoreThanToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -573,6 +581,7 @@
 				092389C31B1D9C92000CC3D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		092389C41B1D9C92000CC3D6 /* Build configuration list for PBXNativeTarget "MoreThanTodayTests" */ = {
 			isa = XCConfigurationList;
@@ -581,6 +590,7 @@
 				092389C61B1D9C92000CC3D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		092389D91B1D9D17000CC3D6 /* Build configuration list for PBXNativeTarget "MoreThanTodayWidget" */ = {
 			isa = XCConfigurationList;
@@ -589,6 +599,7 @@
 				092389DB1B1D9D17000CC3D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

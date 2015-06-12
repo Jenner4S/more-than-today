@@ -12,25 +12,16 @@ import EventKit
 
 class EventCell: UITableViewCell {
 
-  lazy var timeFormatter: NSDateFormatter = {
-    let _formatter = NSDateFormatter()
-    _formatter.dateStyle = .NoStyle
-    _formatter.timeStyle = .ShortStyle
-    return _formatter
-  }()
-
-  lazy var dateFormatter: NSDateFormatter = {
-    let _formatter = NSDateFormatter()
-    _formatter.dateStyle = .ShortStyle
-    _formatter.timeStyle = .NoStyle
-    return _formatter
-    }()
-
-  var event: EKEvent! {
+  var event: EKEvent? {
     didSet {
-      updateUI()
+      if let event = self.event {
+        eventPresenter = EventPresenter(forEvent: event)
+        updateUI()
+      }
     }
   }
+
+  private var eventPresenter: EventPresenter!
 
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
@@ -43,13 +34,11 @@ class EventCell: UITableViewCell {
   @IBOutlet weak var eventDetailsWidthConstraint: NSLayoutConstraint!
 
   private func updateUI() {
-    if let event = self.event {
-      titleLabel.text = event.title
-      locationLabel.text = event.location
-      dateLabel.text = dateFormatter.stringFromDate(event.startDate)
-      fromLabel.text = timeFormatter.stringFromDate(event.startDate)
-      toLabel.text = timeFormatter.stringFromDate(event.endDate)
-    }
+    titleLabel.text = eventPresenter.title
+    locationLabel.text = eventPresenter.location
+    dateLabel.text = eventPresenter.date
+    fromLabel.text = eventPresenter.startTime
+    toLabel.text = eventPresenter.endTime
   }
 
   override func layoutSubviews() {
