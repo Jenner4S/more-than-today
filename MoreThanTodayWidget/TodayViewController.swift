@@ -20,7 +20,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   @IBOutlet weak var tableView: UITableView!
 
   override func viewDidLoad() {
-    tableView.dataSource = self
+    setupTableView()
     fetchEvents()
   }
 
@@ -31,6 +31,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
   private func updatePreferredContentSize() {
     preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(events.count) * 44.0)
+  }
+
+  private func setupTableView() {
+    tableView.dataSource = self
+    tableView.layoutMargins = UIEdgeInsetsZero
   }
 
   private func requestAccessToEvents(completion: (Bool, NSError?) -> Void) {

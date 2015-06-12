@@ -29,6 +29,15 @@ class EventCell: UITableViewCell {
   @IBOutlet weak var fromLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
 
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setup()
+  }
+
+  private func setup() {
+    self.layoutMargins = UIEdgeInsetsZero
+  }
+
   private func updateUI() {
     titleLabel.text = eventPresenter.title
     locationLabel.text = eventPresenter.location
