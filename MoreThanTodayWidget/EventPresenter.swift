@@ -10,11 +10,18 @@ import Foundation
 import EventKit
 
 class EventPresenter {
+  private let oneDay: NSTimeInterval = 24 * 60 * 60 // in seconds
   private let event: EKEvent
 
   lazy private var timeFormatter: NSDateFormatter = {
     let _formatter = NSDateFormatter()
     _formatter.dateFormat = "HH:mm"
+    return _formatter
+  }()
+  
+  lazy private var weekdayFormatter: NSDateFormatter = {
+    let _formatter = NSDateFormatter()
+    _formatter.dateFormat = "EEEE"
     return _formatter
   }()
 
@@ -38,7 +45,13 @@ class EventPresenter {
   }
 
   var date: String {
-    return dateFormatter.stringFromDate(event.startDate)
+    let startDate = event.startDate
+    let oneWeekFromNow = NSDate(timeIntervalSinceNow: 7 * oneDay)
+    if startDate.compare(oneWeekFromNow) == .OrderedAscending {
+      return weekdayFormatter.stringFromDate(startDate)
+    } else {
+      return dateFormatter.stringFromDate(startDate)
+    }
   }
 
   var startTime: String {
