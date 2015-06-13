@@ -47,7 +47,7 @@ class EventPresenter {
   var date: String {
     let startDate = event.startDate
     let oneWeekFromNow = NSDate(timeIntervalSinceNow: 7 * oneDay)
-    if startDate.compare(oneWeekFromNow) == .OrderedAscending {
+    if startDate < oneWeekFromNow {
       return weekdayFormatter.stringFromDate(startDate)
     } else {
       return dateFormatter.stringFromDate(startDate)
@@ -61,4 +61,8 @@ class EventPresenter {
   var endTime: String {
     return timeFormatter.stringFromDate(event.endDate)
   }
+}
+
+func < (left: NSDate, right: NSDate) -> Bool {
+  return left.compare(right) == .OrderedAscending
 }
