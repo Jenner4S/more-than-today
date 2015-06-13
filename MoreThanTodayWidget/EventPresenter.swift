@@ -10,7 +10,9 @@ import Foundation
 import EventKit
 
 class EventPresenter {
-  private let oneDay: NSTimeInterval = 24 * 60 * 60 // in seconds
+  private static let TODAY = NSLocalizedString("widget.today", tableName: "Widget", bundle: NSBundle.mainBundle(), value: "Today", comment: "Date shown for events which occur today")
+  private static let TOMORROW = NSLocalizedString("widget.tomorrow", tableName: "Widget", bundle: NSBundle.mainBundle(), value: "Tomorrow", comment: "Date shown for events which occur tomorrow")
+
   private let event: EKEvent
 
   lazy private var timeFormatter: NSDateFormatter = {
@@ -46,8 +48,11 @@ class EventPresenter {
 
   var date: String {
     let startDate = event.startDate
-    let oneWeekFromNow = NSDate(timeIntervalSinceNow: 7 * oneDay)
-    if startDate < oneWeekFromNow {
+    if startDate < DatesHelper.tomorrow {
+      return EventPresenter.TODAY
+    } else if startDate < DatesHelper.twoDaysFromNow {
+      return EventPresenter.TOMORROW
+    } else if startDate < DatesHelper.oneWeekFromNow {
       return weekdayFormatter.stringFromDate(startDate)
     } else {
       return dateFormatter.stringFromDate(startDate)
@@ -65,4 +70,25 @@ class EventPresenter {
 
 func < (left: NSDate, right: NSDate) -> Bool {
   return left.compare(right) == .OrderedAscending
+}
+
+struct DatesHelper {
+  private static let ONE_DAY: NSTimeInterval = 24 * 60 * 60 // in seconds
+  private static let calendar = NSCalendar.currentCalendar()
+
+  static var tomorrow: NSDate {
+    return startOfDayForDaysFromNow(1)
+  }
+
+  static var twoDaysFromNow: NSDate {
+    return startOfDayForDaysFromNow(2)
+  }
+
+  static var oneWeekFromNow: NSDate {
+    return startOfDayForDaysFromNow(7)
+  }
+
+  private static func startOfDayForDaysFromNow(days: Double) -> NSDate {
+    return calendar.startOfDayForDate(NSDate(timeIntervalSinceNow: days * ONE_DAY))
+  }
 }
