@@ -12,10 +12,31 @@ import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
 
-  private let DAYS_FORWARD = 90
+  private let DEFAULT_DAYS_FORWARD = 90
 
   private let store = EKEventStore()
+  private let defaults = NSUserDefaults(suiteName: "group.com.assafgelber.MoreThanToday")
   private var events = [EKEvent]()
+
+  private var daysForward: Int {
+    if let days = defaults?.integerForKey("daysForward") {
+      return days > 0 ? days : DEFAULT_DAYS_FORWARD
+    }
+    return DEFAULT_DAYS_FORWARD
+  }
+
+  private var calendars: [EKCalendar]? {
+    if let ids = defaults?.arrayForKey("calendars") as? [String] {
+      if ids.count > 0 {
+        var calendars = [EKCalendar]()
+        for identifier in ids {
+          calendars.append(store.calendarWithIdentifier(identifier))
+        }
+        return calendars
+      }
+    }
+    return nil
+  }
 
   @IBOutlet weak var tableView: UITableView!
 
@@ -46,8 +67,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   private func fetchEvents() {
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
-        let endDate = DatesHelper.startOfDayForDaysFromNow(self.DAYS_FORWARD)
-        let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: nil)
+        let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
+        let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
         self.events = self.store.eventsMatchingPredicate(predicate) as! [EKEvent]
 
         self.tableView.reloadData()
