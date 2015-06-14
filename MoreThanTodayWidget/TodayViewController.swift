@@ -12,21 +12,19 @@ import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
 
-  private let DEFAULT_DAYS_FORWARD = 90
-
   private let store = EKEventStore()
-  private let defaults = NSUserDefaults(suiteName: "group.com.assafgelber.MoreThanToday")
+  private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
   private var events = [EKEvent]()
 
   private var daysForward: Int {
-    if let days = defaults?.integerForKey("daysForward") {
-      return days > 0 ? days : DEFAULT_DAYS_FORWARD
+    if let days = defaults?.integerForKey(DefaultsConstants.DAYS_FORWARD_KEY) {
+      return days > 0 ? days : DefaultsConstants.DEFAULT_DAYS_FORWARD
     }
-    return DEFAULT_DAYS_FORWARD
+    return DefaultsConstants.DEFAULT_DAYS_FORWARD
   }
 
   private var calendars: [EKCalendar]? {
-    if let ids = defaults?.arrayForKey("calendars") as? [String] {
+    if let ids = defaults?.arrayForKey(DefaultsConstants.CALENDARS_KEY) as? [String] {
       if ids.count > 0 {
         var calendars = [EKCalendar]()
         for identifier in ids {
