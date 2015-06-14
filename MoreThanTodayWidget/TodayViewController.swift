@@ -12,7 +12,7 @@ import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
 
-  private let NINETY_DAYS = 90 * 24 * 60 * 60 // in seconds
+  private let DAYS_FORWARD = 90
 
   private let store = EKEventStore()
   private var events = [EKEvent]()
@@ -45,7 +45,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   private func fetchEvents() {
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
-        let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: NSDate(timeIntervalSinceNow:Double(self.NINETY_DAYS)), calendars: nil)
+        let endDate = DatesHelper.startOfDayForDaysFromNow(self.DAYS_FORWARD)
+        let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: nil)
         self.events = self.store.eventsMatchingPredicate(predicate) as! [EKEvent]
 
         self.tableView.reloadData()

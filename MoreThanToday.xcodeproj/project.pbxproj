@@ -19,6 +19,7 @@
 		092389D81B1D9D17000CC3D6 /* MoreThanTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 092389CB1B1D9D17000CC3D6 /* MoreThanTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		092389DE1B1D9D1F000CC3D6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092389DD1B1D9D1F000CC3D6 /* EventKit.framework */; };
 		092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092389DF1B1D9D53000CC3D6 /* EventCell.swift */; };
+		CA0D1B991B2E2A7300C8F557 /* DatesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */; };
 		CA99DA841B2AF50A00267948 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99DA831B2AF50A00267948 /* EventPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		092389DD1B1D9D1F000CC3D6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		092389DF1B1D9D53000CC3D6 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		092389E11B1D9E8C000CC3D6 /* MoreThanTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanTodayWidget.entitlements; sourceTree = "<group>"; };
+		CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesHelper.swift; sourceTree = "<group>"; };
 		CA99DA831B2AF50A00267948 /* EventPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				092389D41B1D9D17000CC3D6 /* MainInterface.storyboard */,
 				092389DF1B1D9D53000CC3D6 /* EventCell.swift */,
 				CA99DA831B2AF50A00267948 /* EventPresenter.swift */,
+				CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */,
 				092389D01B1D9D17000CC3D6 /* Supporting Files */,
 			);
 			path = MoreThanTodayWidget;
@@ -347,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */,
+				CA0D1B991B2E2A7300C8F557 /* DatesHelper.swift in Sources */,
 				092389D31B1D9D17000CC3D6 /* TodayViewController.swift in Sources */,
 				CA99DA841B2AF50A00267948 /* EventPresenter.swift in Sources */,
 			);
