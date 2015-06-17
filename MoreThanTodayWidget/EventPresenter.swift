@@ -10,8 +10,8 @@ import Foundation
 import EventKit
 
 class EventPresenter {
-  private static let TODAY = NSLocalizedString("widget.today", tableName: "Widget", bundle: NSBundle.mainBundle(), value: "Today", comment: "Date shown for events which occur today")
-  private static let TOMORROW = NSLocalizedString("widget.tomorrow", tableName: "Widget", bundle: NSBundle.mainBundle(), value: "Tomorrow", comment: "Date shown for events which occur tomorrow")
+  private static let TODAY = NSLocalizedString("today", tableName: "Widget", comment: "Date shown for events which occur today")
+  private static let TOMORROW = NSLocalizedString("tomorrow", tableName: "Widget", comment: "Date shown for events which occur tomorrow")
 
   private let event: EKEvent
 

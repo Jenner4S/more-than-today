@@ -67,7 +67,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       if granted {
         let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
         let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
-        self.events = self.store.eventsMatchingPredicate(predicate) as! [EKEvent]
+        if let events = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
+          self.events = events
+        } else {
+          self.events = []
+        }
 
         self.tableView.reloadData()
         self.updatePreferredContentSize()

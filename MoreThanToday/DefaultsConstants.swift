@@ -11,6 +11,6 @@ import Foundation
 struct DefaultsConstants {
   static let SUITE_NAME = "group.com.assafgelber.MoreThanToday"
   static let DAYS_FORWARD_KEY = "daysForward"
-  static let DEFAULT_DAYS_FORWARD = 90
+  static let DEFAULT_DAYS_FORWARD = 30
   static let CALENDARS_KEY = "calendars"
 }
