@@ -53,7 +53,6 @@ class SelectCalendarsViewController: UIViewController {
   }
 
   private func saveSelectedCalendars() {
-    println(selectedCalendars)
     defaults?.setObject(selectedCalendars, forKey: DefaultsConstants.CALENDARS_KEY)
     defaults?.synchronize()
   }
