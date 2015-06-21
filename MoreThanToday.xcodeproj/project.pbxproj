@@ -25,6 +25,7 @@
 		09754EDF1B31B7F4007C3B95 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EDD1B31B7F4007C3B95 /* Settings.strings */; };
 		09754EE71B31BC27007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
 		09754EE81B31BC29007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
+		09754EED1B31BEF5007C3B95 /* SelectCalendarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */; };
 		CA01F68C1B2E36270024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
 		CA01F68D1B2E366A0024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
 		CA0D1B991B2E2A7300C8F557 /* DatesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */; };
@@ -88,6 +89,7 @@
 		09754EE61B31BC27007C3B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Widget.strings; sourceTree = "<group>"; };
 		09754EEA1B31BC33007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		09754EEB1B31BC54007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Widget.strings; sourceTree = "<group>"; };
+		09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarsViewController.swift; sourceTree = "<group>"; };
 		CA01F68A1B2E334C0024481E /* MoreThanToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanToday.entitlements; sourceTree = "<group>"; };
 		CA01F68B1B2E36270024481E /* DefaultsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsConstants.swift; sourceTree = "<group>"; };
 		CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesHelper.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				092389A91B1D9C92000CC3D6 /* MainViewController.swift */,
 				09754ED11B31A912007C3B95 /* DaysForwardViewController.swift */,
+				09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */,
 			);
 			name = vc;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			files = (
 				CA01F68C1B2E36270024481E /* DefaultsConstants.swift in Sources */,
 				09754ED61B31ADF5007C3B95 /* DaysForwardOptions.swift in Sources */,
+				09754EED1B31BEF5007C3B95 /* SelectCalendarsViewController.swift in Sources */,
 				09754ED41B31AA08007C3B95 /* OptionCell.swift in Sources */,
 				092389AA1B1D9C92000CC3D6 /* MainViewController.swift in Sources */,
 				092389A81B1D9C92000CC3D6 /* AppDelegate.swift in Sources */,
