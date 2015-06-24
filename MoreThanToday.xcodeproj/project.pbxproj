@@ -26,6 +26,7 @@
 		09754EE71B31BC27007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
 		09754EE81B31BC29007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
 		09754EED1B31BEF5007C3B95 /* SelectCalendarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */; };
+		09CE0E061B3AF0E00025BA5D /* EventCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE0E051B3AF0E00025BA5D /* EventCache.swift */; };
 		CA01F68C1B2E36270024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
 		CA01F68D1B2E366A0024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
 		CA0D1B991B2E2A7300C8F557 /* DatesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */; };
@@ -90,6 +91,7 @@
 		09754EEA1B31BC33007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		09754EEB1B31BC54007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Widget.strings; sourceTree = "<group>"; };
 		09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarsViewController.swift; sourceTree = "<group>"; };
+		09CE0E051B3AF0E00025BA5D /* EventCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCache.swift; sourceTree = "<group>"; };
 		CA01F68A1B2E334C0024481E /* MoreThanToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanToday.entitlements; sourceTree = "<group>"; };
 		CA01F68B1B2E36270024481E /* DefaultsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsConstants.swift; sourceTree = "<group>"; };
 		CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesHelper.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				092389D41B1D9D17000CC3D6 /* MainInterface.storyboard */,
 				092389DF1B1D9D53000CC3D6 /* EventCell.swift */,
 				CA99DA831B2AF50A00267948 /* EventPresenter.swift */,
+				09CE0E051B3AF0E00025BA5D /* EventCache.swift */,
 				CA0D1B981B2E2A7300C8F557 /* DatesHelper.swift */,
 				092389D01B1D9D17000CC3D6 /* Supporting Files */,
 			);
@@ -424,6 +427,7 @@
 				092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */,
 				CA01F68D1B2E366A0024481E /* DefaultsConstants.swift in Sources */,
 				CA0D1B991B2E2A7300C8F557 /* DatesHelper.swift in Sources */,
+				09CE0E061B3AF0E00025BA5D /* EventCache.swift in Sources */,
 				092389D31B1D9D17000CC3D6 /* TodayViewController.swift in Sources */,
 				CA99DA841B2AF50A00267948 /* EventPresenter.swift in Sources */,
 			);
