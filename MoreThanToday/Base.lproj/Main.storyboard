@@ -21,6 +21,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="f3x-3v-wZc"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Days forward to display">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -33,6 +34,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gkd-ye-iBD"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Calendars to display">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
