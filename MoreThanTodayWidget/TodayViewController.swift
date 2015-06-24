@@ -63,12 +63,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func fetchEvents() {
+    self.events = EventCache.eventsFromCache()
+
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
         let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
         let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
         if let events = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
           self.events = events
+          EventCache.cacheEvents(events)
         } else {
           self.events = []
         }

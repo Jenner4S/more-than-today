@@ -26,20 +26,25 @@ class EventCache {
   }
 }
 
+private let TITLE_KEY = "title"
+private let LOCATION_KEY = "location"
+private let START_KEY = "start"
+private let END_KEY = "end"
+
 private extension EKEvent {
   func toDictionary() -> [String: AnyObject] {
-    return ["title": self.title,
-      "location": self.location,
-      "start": self.startDate,
-      "end": self.endDate]
+    return [TITLE_KEY: self.title,
+      LOCATION_KEY: self.location,
+      START_KEY: self.startDate,
+      END_KEY: self.endDate]
   }
   
   static func fromDictionary(properties: [String: AnyObject]) -> EKEvent {
-    let event = EKEvent()
-    event.title = properties["title"] as? String
-    event.location = properties["location"] as? String
-    event.startDate = properties["start"] as? NSDate
-    event.endDate = properties["end"] as? NSDate
+    let event = EKEvent(eventStore: EKEventStore())
+    event.title = properties[TITLE_KEY] as? String
+    event.location = properties[LOCATION_KEY] as? String
+    event.startDate = properties[START_KEY] as? NSDate
+    event.endDate = properties[END_KEY] as? NSDate
     return event
   }
 }
