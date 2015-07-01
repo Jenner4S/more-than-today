@@ -13,6 +13,7 @@ class IconNavigationBar: UINavigationBar {
   private let HEIGHT_INCREASE: CGFloat = 144
   private let STATUS_BAR_HEIGHT: CGFloat = 20
   private let DEFAULT_NAVBAR_HEIGHT: CGFloat = 44
+  private let IMAGE_SIZE: CGFloat = 100
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -26,6 +27,15 @@ class IconNavigationBar: UINavigationBar {
 
   private func setup() {
     self.transform = CGAffineTransformMakeTranslation(0, -HEIGHT_INCREASE)
+    self.setupImage()
+  }
+
+  private func setupImage() {
+    let imageView = UIImageView(image: UIImage(named: "Calendar"))
+    let x = (UIScreen.mainScreen().bounds.width - IMAGE_SIZE) / 2
+    let y = HEIGHT_INCREASE + DEFAULT_NAVBAR_HEIGHT
+    imageView.frame = CGRect(x: x, y: y, width: IMAGE_SIZE, height: IMAGE_SIZE)
+    self.addSubview(imageView)
   }
 
   override func sizeThatFits(size: CGSize) -> CGSize {
