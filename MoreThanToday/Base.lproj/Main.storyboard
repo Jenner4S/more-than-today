@@ -210,7 +210,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zEK-tS-Qt3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ao-sk-jSu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ao-sk-jSu" customClass="IconNavigationBar" customModule="MoreThanToday" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
