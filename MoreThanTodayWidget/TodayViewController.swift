@@ -50,7 +50,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func updatePreferredContentSize() {
-    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(events.count) * 44.0)
+    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(max(events.count, 1)) * 44.0)
   }
 
   private func setupTableView() {
@@ -85,12 +85,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 extension TodayViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return events.count
+    return max(events.count, 1)
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
-    cell.event = events[indexPath.row]
-    return cell
+    if events.count > 0 {
+      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
+      cell.event = events[indexPath.row]
+      return cell
+    } else {
+      return tableView.dequeueReusableCellWithIdentifier("EmptyStateCell") as! EmptyStateCell
+    }
   }
 }
