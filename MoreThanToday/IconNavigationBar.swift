@@ -14,6 +14,10 @@ class IconNavigationBar: UINavigationBar {
   private let STATUS_BAR_HEIGHT: CGFloat = 20
   private let DEFAULT_NAVBAR_HEIGHT: CGFloat = 44
   private let IMAGE_SIZE: CGFloat = 100
+  private let TITLE_MARGIN_TOP: CGFloat = 8
+
+  private var calendarIcon: UIImageView!
+  private var titleLabel: UILabel!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -27,15 +31,30 @@ class IconNavigationBar: UINavigationBar {
 
   private func setup() {
     self.transform = CGAffineTransformMakeTranslation(0, -HEIGHT_INCREASE)
-    self.setupImage()
+    self.setupHeader()
   }
 
-  private func setupImage() {
-    let imageView = UIImageView(image: UIImage(named: "Calendar"))
-    let x = (UIScreen.mainScreen().bounds.width - IMAGE_SIZE) / 2
-    let y = HEIGHT_INCREASE + DEFAULT_NAVBAR_HEIGHT
-    imageView.frame = CGRect(x: x, y: y, width: IMAGE_SIZE, height: IMAGE_SIZE)
-    self.addSubview(imageView)
+  private func setupHeader() {
+    calendarIcon = UIImageView(image: UIImage(named: "Calendar"))
+    self.addSubview(calendarIcon)
+
+    titleLabel = UILabel()
+    titleLabel.text = NSLocalizedString("settings_title", tableName: "Settings", comment: "Title in header of settings app")
+    titleLabel.setNeedsLayout()
+    titleLabel.layoutIfNeeded()
+    self.addSubview(titleLabel)
+  }
+
+  private func updateHeaderFrames() {
+    let screenWidth = UIScreen.mainScreen().bounds.width
+    let calendarX =  (screenWidth - IMAGE_SIZE) / 2
+    let calendarY = HEIGHT_INCREASE + DEFAULT_NAVBAR_HEIGHT
+    calendarIcon.frame = CGRect(x: calendarX, y: calendarY, width: IMAGE_SIZE, height: IMAGE_SIZE)
+
+    let titleSize = titleLabel.intrinsicContentSize()
+    let titleX = (screenWidth - titleSize.width) / 2
+    let titleY = calendarY + IMAGE_SIZE + TITLE_MARGIN_TOP
+    titleLabel.frame = CGRect(x: titleX, y: titleY, width: titleSize.width, height: titleSize.height)
   }
 
   override func sizeThatFits(size: CGSize) -> CGSize {
@@ -54,5 +73,7 @@ class IconNavigationBar: UINavigationBar {
         sub.frame = CGRect(x: 0, y: y, width: self.frame.width, height: height)
       }
     }
+
+    self.updateHeaderFrames()
   }
 }

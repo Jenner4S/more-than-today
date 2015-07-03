@@ -6,6 +6,8 @@
   Copyright (c) 2015 Gelber, Assaf. All rights reserved.
 */
 
+"settings_title" = "Widget Settings";
+
 "daysForward.3days"  = "3 days";
 "daysForward.1week"  = "1 week";
 "daysForward.2weeks" = "2 weeks";
