@@ -32,15 +32,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         return calendars
       }
+      return nil
     }
     return nil
   }
 
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var tableView: UITableView! {
+    didSet {
+      if tableView != nil {
+        setupTableView()
+      }
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupTableView()
     fetchEvents()
   }
 

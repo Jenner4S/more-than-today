@@ -11,7 +11,11 @@ import UIKit
 
 class EmptyStateCell: UITableViewCell {
   
-  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var titleLabel: UILabel! {
+    didSet {
+      titleLabel?.text = NSLocalizedString("no_events", tableName: "Widget", comment: "Text shown when there are no events")
+    }
+  }
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -25,6 +29,5 @@ class EmptyStateCell: UITableViewCell {
 
   private func setup() {
     self.layoutMargins = UIEdgeInsetsZero
-    titleLabel.text = NSLocalizedString("no_events", tableName: "Widget", comment: "Text shown when there are no events")
   }
 }
