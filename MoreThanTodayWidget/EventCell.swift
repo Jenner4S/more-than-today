@@ -27,6 +27,7 @@ class EventCell: UITableViewCell {
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var fromLabel: UILabel!
+  @IBOutlet weak var separatorLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
 
   required init(coder aDecoder: NSCoder) {
@@ -42,7 +43,15 @@ class EventCell: UITableViewCell {
     titleLabel.text = eventPresenter.title
     locationLabel.text = eventPresenter.location
     dateLabel.text = eventPresenter.date
-    fromLabel.text = eventPresenter.startTime
-    toLabel.text = eventPresenter.endTime
+
+    if event?.allDay == true {
+      fromLabel.text = EventPresenter.ALL_DAY
+      separatorLabel.hidden = true
+      toLabel.text = nil
+    } else {
+      fromLabel.text = eventPresenter.startTime
+      separatorLabel.hidden = false
+      toLabel.text = eventPresenter.endTime
+    }
   }
 }

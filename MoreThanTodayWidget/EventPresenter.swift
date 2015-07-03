@@ -12,6 +12,7 @@ import EventKit
 class EventPresenter {
   private static let TODAY = NSLocalizedString("today", tableName: "Widget", comment: "Date shown for events which occur today")
   private static let TOMORROW = NSLocalizedString("tomorrow", tableName: "Widget", comment: "Date shown for events which occur tomorrow")
+  static let ALL_DAY = NSLocalizedString("all_day", tableName: "Widget", comment: "Text shown for events which are all day")
 
   private let event: EKEvent
 

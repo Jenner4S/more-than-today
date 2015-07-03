@@ -8,4 +8,5 @@
 
 "today" = "Today";
 "tomorrow" = "Tomorrow";
+"all_day" = "All day";
 "no_events" = "You're all clear!";

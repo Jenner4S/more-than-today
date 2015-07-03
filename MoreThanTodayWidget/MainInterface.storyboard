@@ -31,13 +31,13 @@
                                                     <rect key="frame" x="80" y="0.0" width="240" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner with Someone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDR-rP-BHM">
-                                                            <rect key="frame" x="0.0" y="4" width="240" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="3" width="240" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Restaurant Probably" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC9-hg-sgF">
-                                                            <rect key="frame" x="0.0" y="24" width="240" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="240" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -57,19 +57,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="72" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhT-dx-iOJ">
-                                                            <rect key="frame" x="0.0" y="8" width="65" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-ZD-9Sh">
-                                                            <rect key="frame" x="0.0" y="24" width="31.5" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="8" width="65" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2b-Mk-cOx">
-                                                            <rect key="frame" x="31" y="24" width="8" height="14.5"/>
+                                                            <rect key="frame" x="32" y="24" width="8" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="8" id="7yp-Nb-SiY"/>
                                                             </constraints>
@@ -78,7 +72,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJE-yY-ZJh">
-                                                            <rect key="frame" x="39" y="24" width="31.5" height="14.5"/>
+                                                            <rect key="frame" x="40" y="24" width="32" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-ZD-9Sh">
+                                                            <rect key="frame" x="0.0" y="24" width="32" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -115,6 +115,7 @@
                                             <outlet property="dateLabel" destination="vhT-dx-iOJ" id="zed-Vk-e4L"/>
                                             <outlet property="fromLabel" destination="tGS-ZD-9Sh" id="9SW-7k-NNF"/>
                                             <outlet property="locationLabel" destination="hC9-hg-sgF" id="krH-sB-Uyb"/>
+                                            <outlet property="separatorLabel" destination="p2b-Mk-cOx" id="Roa-ZD-PDQ"/>
                                             <outlet property="titleLabel" destination="UDR-rP-BHM" id="siX-Uj-2iO"/>
                                             <outlet property="toLabel" destination="KJE-yY-ZJh" id="tzB-Pd-05F"/>
                                         </connections>
@@ -126,7 +127,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUS-C1-SIj">
-                                                    <rect key="frame" x="0.0" y="11.5" width="79" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="11" width="79" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
