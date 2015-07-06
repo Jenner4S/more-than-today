@@ -59,6 +59,74 @@
             </objects>
             <point key="canvasLocation" x="1342" y="-171"/>
         </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="1YO-LE-iyO">
+            <objects>
+                <viewController storyboardIdentifier="intro" id="HNh-yB-rVa" customClass="IntroViewController" customModule="MoreThanToday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Df1-mD-o1r"/>
+                        <viewControllerLayoutGuide type="bottom" id="OpU-oO-2st"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mPN-Rt-bdg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="71q-PU-kmv">
+                                <rect key="frame" x="250" y="44" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="c5a-jd-YsP"/>
+                                    <constraint firstAttribute="height" constant="100" id="zkH-Np-Dtx"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-4q-O5u">
+                                <rect key="frame" x="244" y="558" width="112" height="30"/>
+                                <state key="normal" title="Cool, cool, cool!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissTapped:" destination="HNh-yB-rVa" eventType="touchUpInside" id="Qs2-pk-Ezs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for downloading More Than Today!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-u9-a7O">
+                                <rect key="frame" x="136" y="168" width="326.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't already, add the widget to your Notification Center, then come back here tor settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y27-oZ-cQe">
+                                <rect key="frame" x="24" y="212.5" width="552" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OpU-oO-2st" firstAttribute="top" secondItem="ztP-4q-O5u" secondAttribute="bottom" constant="12" id="JPI-7o-SJI"/>
+                            <constraint firstItem="Y27-oZ-cQe" firstAttribute="top" secondItem="lfs-u9-a7O" secondAttribute="bottom" constant="24" id="L07-KI-555"/>
+                            <constraint firstAttribute="trailing" secondItem="Y27-oZ-cQe" secondAttribute="trailing" constant="24" id="MYy-eG-II4"/>
+                            <constraint firstItem="lfs-u9-a7O" firstAttribute="top" secondItem="71q-PU-kmv" secondAttribute="bottom" constant="24" id="Scc-Ap-Usk"/>
+                            <constraint firstItem="71q-PU-kmv" firstAttribute="top" secondItem="Df1-mD-o1r" secondAttribute="bottom" constant="44" id="afS-Cv-6I2"/>
+                            <constraint firstAttribute="centerX" secondItem="ztP-4q-O5u" secondAttribute="centerX" id="erP-Bn-vCR"/>
+                            <constraint firstItem="Y27-oZ-cQe" firstAttribute="centerX" secondItem="lfs-u9-a7O" secondAttribute="centerX" id="rpo-xG-XVA"/>
+                            <constraint firstAttribute="centerX" secondItem="lfs-u9-a7O" secondAttribute="centerX" id="rwy-p1-plR"/>
+                            <constraint firstItem="Y27-oZ-cQe" firstAttribute="leading" secondItem="mPN-Rt-bdg" secondAttribute="leading" constant="24" id="wTT-yH-1DT"/>
+                            <constraint firstAttribute="centerX" secondItem="71q-PU-kmv" secondAttribute="centerX" id="yLU-Bn-abW"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dismissButton" destination="ztP-4q-O5u" id="54v-UQ-GIH"/>
+                        <outlet property="notificationCenterLabel" destination="Y27-oZ-cQe" id="AnF-n7-gcm"/>
+                        <outlet property="thanksLabel" destination="lfs-u9-a7O" id="idt-sZ-7WJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lv6-Da-Rch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342" y="546"/>
+        </scene>
         <!--Days Forward View Controller-->
         <scene sceneID="RK1-Tq-KGJ">
             <objects>
@@ -224,4 +292,7 @@
             <point key="canvasLocation" x="662" y="-171"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Calendar" width="120" height="120"/>
+    </resources>
 </document>

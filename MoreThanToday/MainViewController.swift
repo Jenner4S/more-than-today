@@ -9,17 +9,32 @@
 import UIKit
 
 class MainViewController: UIViewController {
+  private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
+
+  lazy private var introViewController: IntroViewController = {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    return storyboard.instantiateViewControllerWithIdentifier("intro") as! IntroViewController
+  }()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.showIntroIfNeeded()
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  private func showIntroIfNeeded() {
+    if shouldPresentIntro() {
+      presentViewController(introViewController, animated: false) {
+        self.defaults?.setBool(true, forKey: DefaultsConstants.SAW_INTRO_KEY)
+        self.defaults?.synchronize()
+      }
+    }
   }
 
-
+  private func shouldPresentIntro() -> Bool {
+    if let defaults = defaults {
+      return !defaults.boolForKey(DefaultsConstants.SAW_INTRO_KEY)
+    }
+    return false
+  }
 }
-
