@@ -11,7 +11,6 @@ import UIKit
 
 class OptionCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var selectedIndicator: UILabel!
 
   func setTitle(title: String) {
     titleLabel.text = title
@@ -19,6 +18,6 @@ class OptionCell: UITableViewCell {
 
   override func setSelected(selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    selectedIndicator.hidden = !selected
+    self.accessoryType = selected ? .Checkmark : .None
   }
 }

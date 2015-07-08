@@ -15,6 +15,7 @@ class IconNavigationBar: UINavigationBar {
   private let DEFAULT_NAVBAR_HEIGHT: CGFloat = 44
   private let IMAGE_SIZE: CGFloat = 100
   private let TITLE_MARGIN_TOP: CGFloat = 8
+  private let BACKGROUND_COLOR = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
 
   private var calendarIcon: UIImageView!
   private var titleLabel: UILabel!
@@ -30,6 +31,8 @@ class IconNavigationBar: UINavigationBar {
   }
 
   private func setup() {
+    self.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    self.shadowImage = UIImage()
     self.transform = CGAffineTransformMakeTranslation(0, -HEIGHT_INCREASE)
     self.setupHeader()
   }
@@ -71,6 +74,7 @@ class IconNavigationBar: UINavigationBar {
         let y: CGFloat = HEIGHT_INCREASE - STATUS_BAR_HEIGHT
         let height: CGFloat = HEIGHT_INCREASE + DEFAULT_NAVBAR_HEIGHT + STATUS_BAR_HEIGHT
         sub.frame = CGRect(x: 0, y: y, width: self.frame.width, height: height)
+        sub.backgroundColor = BACKGROUND_COLOR
       }
     }
 

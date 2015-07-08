@@ -16,8 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5B-2y-ZOy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5B-2y-ZOy" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="f3x-3v-wZc"/>
                                 </constraints>
@@ -25,12 +26,21 @@
                                 <state key="normal" title="Days forward to display">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="gu6-iX-6De" kind="show" identifier="Days Forward Segue" id="dYp-Vm-Pja"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-mK-Lhh">
-                                <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-mK-Lhh" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="107" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gkd-ye-iBD"/>
                                 </constraints>
@@ -38,15 +48,23 @@
                                 <state key="normal" title="Calendars to display">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="28v-le-dx2" kind="show" identifier="Selected Identifiers Segue" id="jb8-Ly-8aA"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Mdw-mK-Lhh" secondAttribute="trailing" id="EOh-RG-F3A"/>
-                            <constraint firstItem="Mdw-mK-Lhh" firstAttribute="top" secondItem="A5B-2y-ZOy" secondAttribute="bottom" id="EWc-JE-ELq"/>
+                            <constraint firstItem="Mdw-mK-Lhh" firstAttribute="top" secondItem="A5B-2y-ZOy" secondAttribute="bottom" constant="-1" id="EWc-JE-ELq"/>
                             <constraint firstItem="A5B-2y-ZOy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FdM-mp-UXZ"/>
                             <constraint firstAttribute="trailing" secondItem="A5B-2y-ZOy" secondAttribute="trailing" id="KEN-5a-4Db"/>
                             <constraint firstItem="Mdw-mK-Lhh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gOV-5M-irl"/>
@@ -88,19 +106,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for downloading More Than Today!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-u9-a7O">
-                                <rect key="frame" x="136" y="168" width="326.5" height="20.5"/>
+                                <rect key="frame" x="136" y="168" width="327" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't already, add the widget to your Notification Center, then come back here tor settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y27-oZ-cQe">
-                                <rect key="frame" x="24" y="212.5" width="552" height="41"/>
+                                <rect key="frame" x="24" y="213" width="552" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OpU-oO-2st" firstAttribute="top" secondItem="ztP-4q-O5u" secondAttribute="bottom" constant="12" id="JPI-7o-SJI"/>
                             <constraint firstItem="Y27-oZ-cQe" firstAttribute="top" secondItem="lfs-u9-a7O" secondAttribute="bottom" constant="24" id="L07-KI-555"/>
@@ -143,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Option Cell" id="48H-D9-RVe" customClass="OptionCell" customModule="MoreThanToday" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Option Cell" id="48H-D9-RVe" customClass="OptionCell" customModule="MoreThanToday" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="48H-D9-RVe" id="8ce-7l-tGg">
@@ -155,22 +173,13 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔️" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5l-VT-BN9">
-                                                    <rect key="frame" x="566" y="11" width="22" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="i5l-VT-BN9" secondAttribute="centerY" id="Imp-T1-uA3"/>
-                                                <constraint firstAttribute="trailing" secondItem="i5l-VT-BN9" secondAttribute="trailing" constant="12" id="WEG-ZV-z1Y"/>
                                                 <constraint firstItem="iRL-5b-ADK" firstAttribute="leading" secondItem="8ce-7l-tGg" secondAttribute="leading" constant="12" id="bK9-TT-SkT"/>
                                                 <constraint firstAttribute="centerY" secondItem="iRL-5b-ADK" secondAttribute="centerY" id="yVc-IS-h0Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="selectedIndicator" destination="i5l-VT-BN9" id="D6w-kh-Xnb"/>
                                             <outlet property="titleLabel" destination="iRL-5b-ADK" id="tfI-kU-ASO"/>
                                         </connections>
                                     </tableViewCell>
@@ -181,7 +190,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="a1g-Er-jeD" secondAttribute="trailing" id="8Pp-fx-YWA"/>
                             <constraint firstItem="a1g-Er-jeD" firstAttribute="top" secondItem="kmc-PE-t5t" secondAttribute="bottom" id="HC4-fh-fic"/>
@@ -219,7 +228,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Option Cell" id="TWn-aT-JKp" customClass="OptionCell" customModule="MoreThanToday" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Option Cell" id="TWn-aT-JKp" customClass="OptionCell" customModule="MoreThanToday" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TWn-aT-JKp" id="xCR-jk-uoF">
@@ -231,22 +240,13 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔️" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-yK-tOs">
-                                                    <rect key="frame" x="566" y="11" width="22" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="dIr-yK-tOs" secondAttribute="trailing" constant="12" id="4ct-UR-YLb"/>
                                                 <constraint firstAttribute="centerY" secondItem="yZd-lU-59i" secondAttribute="centerY" id="C0i-di-dF3"/>
-                                                <constraint firstAttribute="centerY" secondItem="dIr-yK-tOs" secondAttribute="centerY" id="LWh-bv-21V"/>
                                                 <constraint firstItem="yZd-lU-59i" firstAttribute="leading" secondItem="xCR-jk-uoF" secondAttribute="leading" constant="12" id="U1r-mW-jRf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="selectedIndicator" destination="dIr-yK-tOs" id="7ZQ-LG-aJU"/>
                                             <outlet property="titleLabel" destination="yZd-lU-59i" id="nwx-qn-27Q"/>
                                         </connections>
                                     </tableViewCell>
@@ -257,7 +257,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Tmo-Gp-udt" secondAttribute="trailing" id="Dvx-p2-lhx"/>
                             <constraint firstItem="03A-Wq-hRt" firstAttribute="top" secondItem="Tmo-Gp-udt" secondAttribute="bottom" id="Ky9-WW-N2i"/>
@@ -281,6 +281,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ao-sk-jSu" customClass="IconNavigationBar" customModule="MoreThanToday" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

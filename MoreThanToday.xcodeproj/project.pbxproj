@@ -29,6 +29,7 @@
 		098AF5881B4B0359007892F3 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF5871B4B0359007892F3 /* IntroViewController.swift */; };
 		09A31E401B447012009B7401 /* IconNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A31E3F1B447012009B7401 /* IconNavigationBar.swift */; };
 		09A31E421B4480A7009B7401 /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A31E411B4480A7009B7401 /* EmptyStateCell.swift */; };
+		09CA7CF91B4D580B002B41D8 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA7CF81B4D580B002B41D8 /* BorderButton.swift */; };
 		09CE0E061B3AF0E00025BA5D /* EventCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE0E051B3AF0E00025BA5D /* EventCache.swift */; };
 		CA01F68C1B2E36270024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
 		CA01F68D1B2E366A0024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
@@ -97,6 +98,7 @@
 		098AF5871B4B0359007892F3 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		09A31E3F1B447012009B7401 /* IconNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconNavigationBar.swift; sourceTree = "<group>"; };
 		09A31E411B4480A7009B7401 /* EmptyStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
+		09CA7CF81B4D580B002B41D8 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		09CE0E051B3AF0E00025BA5D /* EventCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCache.swift; sourceTree = "<group>"; };
 		CA01F68A1B2E334C0024481E /* MoreThanToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanToday.entitlements; sourceTree = "<group>"; };
 		CA01F68B1B2E36270024481E /* DefaultsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsConstants.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		09754EE21B31B8AB007C3B95 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				09CA7CF81B4D580B002B41D8 /* BorderButton.swift */,
 				09754ED31B31AA08007C3B95 /* OptionCell.swift */,
 				09A31E3F1B447012009B7401 /* IconNavigationBar.swift */,
 				09754ED91B31B675007C3B95 /* Main.storyboard */,
@@ -414,6 +417,7 @@
 				098AF5881B4B0359007892F3 /* IntroViewController.swift in Sources */,
 				09A31E401B447012009B7401 /* IconNavigationBar.swift in Sources */,
 				CA01F68C1B2E36270024481E /* DefaultsConstants.swift in Sources */,
+				09CA7CF91B4D580B002B41D8 /* BorderButton.swift in Sources */,
 				09754ED61B31ADF5007C3B95 /* DaysForwardOptions.swift in Sources */,
 				09754EED1B31BEF5007C3B95 /* SelectCalendarsViewController.swift in Sources */,
 				09754ED41B31AA08007C3B95 /* OptionCell.swift in Sources */,

@@ -18,7 +18,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="yBA-yy-59O" secondAttribute="centerX" id="V4e-ee-59Y"/>
                 <constraint firstItem="yBA-yy-59O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="fUM-S8-2Ts"/>
