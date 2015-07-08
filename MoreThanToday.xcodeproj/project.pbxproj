@@ -167,7 +167,6 @@
 				09754EE21B31B8AB007C3B95 /* ui */,
 				09754EE41B31B8D6007C3B95 /* data */,
 				09754EE11B31B85B007C3B95 /* strings */,
-				09754ED71B31B675007C3B95 /* LaunchScreen.xib */,
 				092389AE1B1D9C92000CC3D6 /* Images.xcassets */,
 				092389A51B1D9C92000CC3D6 /* Supporting Files */,
 			);
@@ -244,12 +243,11 @@
 		09754EE21B31B8AB007C3B95 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				CABC25BC1B4DB1E400CE8551 /* animation */,
+				CABC25BD1B4DB1F500CE8551 /* elements */,
 				09CA7CFA1B4D61AC002B41D8 /* CALayer+borderUIColor.swift */,
-				09A31E3F1B447012009B7401 /* IconNavigationBar.swift */,
-				09CA7CF81B4D580B002B41D8 /* BorderButton.swift */,
-				09754ED31B31AA08007C3B95 /* OptionCell.swift */,
-				09CA7CFC1B4D63C0002B41D8 /* IntroDismissTransition.swift */,
 				09754ED91B31B675007C3B95 /* Main.storyboard */,
+				09754ED71B31B675007C3B95 /* LaunchScreen.xib */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -272,6 +270,24 @@
 				09754ED51B31ADF5007C3B95 /* DaysForwardOptions.swift */,
 			);
 			name = data;
+			sourceTree = "<group>";
+		};
+		CABC25BC1B4DB1E400CE8551 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				09CA7CFC1B4D63C0002B41D8 /* IntroDismissTransition.swift */,
+			);
+			name = animation;
+			sourceTree = "<group>";
+		};
+		CABC25BD1B4DB1F500CE8551 /* elements */ = {
+			isa = PBXGroup;
+			children = (
+				09A31E3F1B447012009B7401 /* IconNavigationBar.swift */,
+				09CA7CF81B4D580B002B41D8 /* BorderButton.swift */,
+				09754ED31B31AA08007C3B95 /* OptionCell.swift */,
+			);
+			name = elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
