@@ -16,6 +16,8 @@ class IntroViewController: UIViewController {
   @IBOutlet weak var notificationCenterLabel: UILabel!
   @IBOutlet weak var dismissButton: UIButton!
 
+  let transitionManager = IntroDismissTransition()
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -29,6 +31,7 @@ class IntroViewController: UIViewController {
   }
 
   @IBAction func dismissTapped(sender: UIButton) {
+    self.transitioningDelegate = self.transitionManager
     dismissViewControllerAnimated(true, completion: nil)
   }
 }

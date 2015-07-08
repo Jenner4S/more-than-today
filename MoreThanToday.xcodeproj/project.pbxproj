@@ -31,6 +31,7 @@
 		09A31E421B4480A7009B7401 /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A31E411B4480A7009B7401 /* EmptyStateCell.swift */; };
 		09CA7CF91B4D580B002B41D8 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA7CF81B4D580B002B41D8 /* BorderButton.swift */; };
 		09CA7CFB1B4D61AC002B41D8 /* CALayer+borderUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA7CFA1B4D61AC002B41D8 /* CALayer+borderUIColor.swift */; };
+		09CA7CFD1B4D63C0002B41D8 /* IntroDismissTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA7CFC1B4D63C0002B41D8 /* IntroDismissTransition.swift */; };
 		09CE0E061B3AF0E00025BA5D /* EventCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE0E051B3AF0E00025BA5D /* EventCache.swift */; };
 		CA01F68C1B2E36270024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
 		CA01F68D1B2E366A0024481E /* DefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA01F68B1B2E36270024481E /* DefaultsConstants.swift */; };
@@ -101,6 +102,7 @@
 		09A31E411B4480A7009B7401 /* EmptyStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
 		09CA7CF81B4D580B002B41D8 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		09CA7CFA1B4D61AC002B41D8 /* CALayer+borderUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+borderUIColor.swift"; sourceTree = "<group>"; };
+		09CA7CFC1B4D63C0002B41D8 /* IntroDismissTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroDismissTransition.swift; sourceTree = "<group>"; };
 		09CE0E051B3AF0E00025BA5D /* EventCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCache.swift; sourceTree = "<group>"; };
 		CA01F68A1B2E334C0024481E /* MoreThanToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanToday.entitlements; sourceTree = "<group>"; };
 		CA01F68B1B2E36270024481E /* DefaultsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsConstants.swift; sourceTree = "<group>"; };
@@ -243,9 +245,10 @@
 			isa = PBXGroup;
 			children = (
 				09CA7CFA1B4D61AC002B41D8 /* CALayer+borderUIColor.swift */,
+				09A31E3F1B447012009B7401 /* IconNavigationBar.swift */,
 				09CA7CF81B4D580B002B41D8 /* BorderButton.swift */,
 				09754ED31B31AA08007C3B95 /* OptionCell.swift */,
-				09A31E3F1B447012009B7401 /* IconNavigationBar.swift */,
+				09CA7CFC1B4D63C0002B41D8 /* IntroDismissTransition.swift */,
 				09754ED91B31B675007C3B95 /* Main.storyboard */,
 			);
 			name = ui;
@@ -427,6 +430,7 @@
 				09754ED41B31AA08007C3B95 /* OptionCell.swift in Sources */,
 				092389AA1B1D9C92000CC3D6 /* MainViewController.swift in Sources */,
 				092389A81B1D9C92000CC3D6 /* AppDelegate.swift in Sources */,
+				09CA7CFD1B4D63C0002B41D8 /* IntroDismissTransition.swift in Sources */,
 				09754ED21B31A912007C3B95 /* DaysForwardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

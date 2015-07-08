@@ -16,62 +16,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5B-2y-ZOy" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMD-lm-B3D" userLabel="Button Container">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5B-2y-ZOy" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="f3x-3v-wZc"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Days forward to display">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="gu6-iX-6De" kind="show" identifier="Days Forward Segue" id="dYp-Vm-Pja"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-mK-Lhh" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="43" width="600" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="gkd-ye-iBD"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Calendars to display">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="28v-le-dx2" kind="show" identifier="Selected Identifiers Segue" id="jb8-Ly-8aA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="f3x-3v-wZc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mdw-mK-Lhh" secondAttribute="trailing" id="5r6-Lg-Dar"/>
+                                    <constraint firstItem="A5B-2y-ZOy" firstAttribute="leading" secondItem="pMD-lm-B3D" secondAttribute="leading" id="EFC-UC-WVj"/>
+                                    <constraint firstItem="Mdw-mK-Lhh" firstAttribute="top" secondItem="A5B-2y-ZOy" secondAttribute="bottom" constant="-1" id="cnS-xI-qHu"/>
+                                    <constraint firstItem="A5B-2y-ZOy" firstAttribute="top" secondItem="pMD-lm-B3D" secondAttribute="top" id="dWf-rI-ePU"/>
+                                    <constraint firstItem="Mdw-mK-Lhh" firstAttribute="leading" secondItem="pMD-lm-B3D" secondAttribute="leading" id="rCx-DA-sL5"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5B-2y-ZOy" secondAttribute="trailing" id="u1D-4a-bDJ"/>
                                 </constraints>
-                                <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Days forward to display">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="gu6-iX-6De" kind="show" identifier="Days Forward Segue" id="dYp-Vm-Pja"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-mK-Lhh" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="107" width="600" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="gkd-ye-iBD"/>
-                                </constraints>
-                                <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Calendars to display">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="28v-le-dx2" kind="show" identifier="Selected Identifiers Segue" id="jb8-Ly-8aA"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Mdw-mK-Lhh" secondAttribute="trailing" id="EOh-RG-F3A"/>
-                            <constraint firstItem="Mdw-mK-Lhh" firstAttribute="top" secondItem="A5B-2y-ZOy" secondAttribute="bottom" constant="-1" id="EWc-JE-ELq"/>
-                            <constraint firstItem="A5B-2y-ZOy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FdM-mp-UXZ"/>
-                            <constraint firstAttribute="trailing" secondItem="A5B-2y-ZOy" secondAttribute="trailing" id="KEN-5a-4Db"/>
-                            <constraint firstItem="Mdw-mK-Lhh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gOV-5M-irl"/>
-                            <constraint firstItem="A5B-2y-ZOy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="twK-gU-7dM"/>
+                            <constraint firstItem="pMD-lm-B3D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Mx-8S-15H"/>
+                            <constraint firstAttribute="trailing" secondItem="pMD-lm-B3D" secondAttribute="trailing" id="lqq-0O-4aN"/>
+                            <constraint firstItem="pMD-lm-B3D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qvK-z2-GTa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pMD-lm-B3D" secondAttribute="bottom" id="y2M-f1-pgu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cvv-wr-HP9"/>
+                    <connections>
+                        <outlet property="buttonsContainer" destination="pMD-lm-B3D" id="CG0-gM-npg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,47 +111,64 @@
                                     <constraint firstAttribute="height" constant="100" id="zkH-Np-Dtx"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for downloading More Than Today!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-u9-a7O">
-                                <rect key="frame" x="136" y="168" width="327" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't already, add the widget to your Notification Center, then come back here tor settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y27-oZ-cQe">
-                                <rect key="frame" x="24" y="213" width="552" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-4q-O5u">
-                                <rect key="frame" x="220" y="534" width="160" height="42"/>
-                                <inset key="contentEdgeInsets" minX="24" minY="12" maxX="24" maxY="12"/>
-                                <state key="normal" title="Cool, cool, cool!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="dismissTapped:" destination="HNh-yB-rVa" eventType="touchUpInside" id="Qs2-pk-Ezs"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jv-zT-CIr" userLabel="Text Container">
+                                <rect key="frame" x="0.0" y="168" width="600" height="432"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for downloading More Than Today!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-u9-a7O">
+                                        <rect key="frame" x="137" y="0.0" width="327" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you haven't already, add the widget to your Notification Center, then come back here tor settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y27-oZ-cQe">
+                                        <rect key="frame" x="24" y="45" width="552" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-4q-O5u">
+                                        <rect key="frame" x="220" y="366" width="160" height="42"/>
+                                        <inset key="contentEdgeInsets" minX="24" minY="12" maxX="24" maxY="12"/>
+                                        <state key="normal" title="Cool, cool, cool!">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                <color key="value" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dismissTapped:" destination="HNh-yB-rVa" eventType="touchUpInside" id="Qs2-pk-Ezs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="lfs-u9-a7O" firstAttribute="centerX" secondItem="Y27-oZ-cQe" secondAttribute="centerX" id="6ag-TI-XZa"/>
+                                    <constraint firstItem="lfs-u9-a7O" firstAttribute="top" secondItem="8jv-zT-CIr" secondAttribute="top" id="9Xj-VM-br0"/>
+                                    <constraint firstItem="Y27-oZ-cQe" firstAttribute="leading" secondItem="8jv-zT-CIr" secondAttribute="leading" constant="24" id="9bP-CH-2jP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y27-oZ-cQe" secondAttribute="trailing" constant="24" id="KK5-rT-E0a"/>
+                                    <constraint firstAttribute="bottom" secondItem="ztP-4q-O5u" secondAttribute="bottom" constant="24" id="OQg-7U-jF9"/>
+                                    <constraint firstAttribute="centerX" secondItem="lfs-u9-a7O" secondAttribute="centerX" id="TTj-s1-4MU"/>
+                                    <constraint firstItem="Y27-oZ-cQe" firstAttribute="top" secondItem="lfs-u9-a7O" secondAttribute="bottom" constant="24" id="e90-Rd-gBN"/>
+                                    <constraint firstAttribute="centerX" secondItem="ztP-4q-O5u" secondAttribute="centerX" id="rtr-Wz-gbw"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6ag-TI-XZa"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OpU-oO-2st" firstAttribute="top" secondItem="ztP-4q-O5u" secondAttribute="bottom" constant="24" id="JPI-7o-SJI"/>
-                            <constraint firstItem="Y27-oZ-cQe" firstAttribute="top" secondItem="lfs-u9-a7O" secondAttribute="bottom" constant="24" id="L07-KI-555"/>
-                            <constraint firstAttribute="trailing" secondItem="Y27-oZ-cQe" secondAttribute="trailing" constant="24" id="MYy-eG-II4"/>
-                            <constraint firstItem="lfs-u9-a7O" firstAttribute="top" secondItem="71q-PU-kmv" secondAttribute="bottom" constant="24" id="Scc-Ap-Usk"/>
+                            <constraint firstItem="OpU-oO-2st" firstAttribute="top" secondItem="8jv-zT-CIr" secondAttribute="bottom" id="ON7-On-zHv"/>
                             <constraint firstItem="71q-PU-kmv" firstAttribute="top" secondItem="Df1-mD-o1r" secondAttribute="bottom" constant="44" id="afS-Cv-6I2"/>
-                            <constraint firstAttribute="centerX" secondItem="ztP-4q-O5u" secondAttribute="centerX" id="erP-Bn-vCR"/>
-                            <constraint firstItem="Y27-oZ-cQe" firstAttribute="centerX" secondItem="lfs-u9-a7O" secondAttribute="centerX" id="rpo-xG-XVA"/>
-                            <constraint firstAttribute="centerX" secondItem="lfs-u9-a7O" secondAttribute="centerX" id="rwy-p1-plR"/>
-                            <constraint firstItem="Y27-oZ-cQe" firstAttribute="leading" secondItem="mPN-Rt-bdg" secondAttribute="leading" constant="24" id="wTT-yH-1DT"/>
+                            <constraint firstAttribute="trailing" secondItem="8jv-zT-CIr" secondAttribute="trailing" id="nF4-LZ-w4u"/>
+                            <constraint firstItem="8jv-zT-CIr" firstAttribute="leading" secondItem="mPN-Rt-bdg" secondAttribute="leading" id="vyj-GF-cV9"/>
+                            <constraint firstItem="8jv-zT-CIr" firstAttribute="top" secondItem="71q-PU-kmv" secondAttribute="bottom" constant="24" id="wQi-FJ-VLg"/>
                             <constraint firstAttribute="centerX" secondItem="71q-PU-kmv" secondAttribute="centerX" id="yLU-Bn-abW"/>
                         </constraints>
                     </view>

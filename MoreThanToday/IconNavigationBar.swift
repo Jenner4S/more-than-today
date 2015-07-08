@@ -17,8 +17,8 @@ class IconNavigationBar: UINavigationBar {
   private let TITLE_MARGIN_TOP: CGFloat = 8
   private let BACKGROUND_COLOR = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
 
-  private var calendarIcon: UIImageView!
-  private var titleLabel: UILabel!
+  var calendarIcon: UIImageView!
+  var titleLabel: UILabel!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
