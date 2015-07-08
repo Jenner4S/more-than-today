@@ -6,7 +6,7 @@
   Copyright (c) 2015 Gelber, Assaf. All rights reserved.
 */
 
-"intro_thanks" = "Thanks for downloading More Than Today";
+"intro_thanks" = "Thanks for downloading More Than Today!";
 "intro_explanation" = "If you haven't already, add the widget to your Notification Center, then come back here tor settings.";
 "intro_dismiss" = "Cool, cool, cool!";
 
