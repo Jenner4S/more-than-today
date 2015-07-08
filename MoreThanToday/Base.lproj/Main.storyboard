@@ -96,15 +96,6 @@
                                     <constraint firstAttribute="height" constant="100" id="zkH-Np-Dtx"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-4q-O5u">
-                                <rect key="frame" x="244" y="558" width="112" height="30"/>
-                                <state key="normal" title="Cool, cool, cool!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissTapped:" destination="HNh-yB-rVa" eventType="touchUpInside" id="Qs2-pk-Ezs"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for downloading More Than Today!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-u9-a7O">
                                 <rect key="frame" x="136" y="168" width="327" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -117,10 +108,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-4q-O5u">
+                                <rect key="frame" x="220" y="534" width="160" height="42"/>
+                                <inset key="contentEdgeInsets" minX="24" minY="12" maxX="24" maxY="12"/>
+                                <state key="normal" title="Cool, cool, cool!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissTapped:" destination="HNh-yB-rVa" eventType="touchUpInside" id="Qs2-pk-Ezs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OpU-oO-2st" firstAttribute="top" secondItem="ztP-4q-O5u" secondAttribute="bottom" constant="12" id="JPI-7o-SJI"/>
+                            <constraint firstItem="OpU-oO-2st" firstAttribute="top" secondItem="ztP-4q-O5u" secondAttribute="bottom" constant="24" id="JPI-7o-SJI"/>
                             <constraint firstItem="Y27-oZ-cQe" firstAttribute="top" secondItem="lfs-u9-a7O" secondAttribute="bottom" constant="24" id="L07-KI-555"/>
                             <constraint firstAttribute="trailing" secondItem="Y27-oZ-cQe" secondAttribute="trailing" constant="24" id="MYy-eG-II4"/>
                             <constraint firstItem="lfs-u9-a7O" firstAttribute="top" secondItem="71q-PU-kmv" secondAttribute="bottom" constant="24" id="Scc-Ap-Usk"/>
