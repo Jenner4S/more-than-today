@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     return storyboard.instantiateViewControllerWithIdentifier("intro") as! IntroViewController
   }()
 
+  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var buttonsContainer: UIView!
 
   override func viewDidLoad() {

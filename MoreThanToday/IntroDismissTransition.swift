@@ -18,14 +18,13 @@ class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, U
     let container = transitionContext.containerView()
     let introVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! IntroViewController
     let navVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! UINavigationController
-    let navBar = navVC.navigationBar as! IconNavigationBar
     let mainVC = navVC.topViewController as! MainViewController
     let duration = self.transitionDuration(transitionContext)
 
     container.addSubview(navVC.view)
     container.addSubview(introVC.view)
 
-    navBar.titleLabel.alpha = 0
+    mainVC.titleLabel.alpha = 0
     mainVC.buttonsContainer.alpha = 0
 
     UIView.animateWithDuration(duration * 0.5, animations: {
@@ -33,7 +32,7 @@ class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, U
     })
     UIView.animateWithDuration(duration * 0.5, delay: duration * 0.5, options: nil, animations: {
       mainVC.buttonsContainer.alpha = 1
-      navBar.titleLabel.alpha = 1
+      mainVC.titleLabel.alpha = 1
     }, completion: { finished in
       transitionContext.completeTransition(finished)
     })
