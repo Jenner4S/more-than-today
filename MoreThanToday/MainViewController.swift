@@ -25,6 +25,13 @@ class MainViewController: UIViewController {
     self.showIntroIfNeeded()
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let segue = segue as? SettingsButtonSegue {
+      segue.senderView = sender as! UIView
+      segue.targetView = self.view
+    }
+  }
+
   private func showIntroIfNeeded() {
     if shouldPresentIntro() {
       presentViewController(introViewController, animated: false) {
