@@ -14,6 +14,7 @@ class DaysForwardViewController: UIViewController {
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var doneBar: UIView!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)

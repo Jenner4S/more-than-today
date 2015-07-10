@@ -11,7 +11,7 @@ import UIKit
 
 class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
   func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-    return 0.5
+    return AnimationUtilities.DURATION
   }
 
   func animateTransition(transitionContext: UIViewControllerContextTransitioning) {

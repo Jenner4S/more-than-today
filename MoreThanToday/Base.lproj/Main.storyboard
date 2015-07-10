@@ -132,6 +132,8 @@
                     <navigationItem key="navigationItem" id="Cvv-wr-HP9"/>
                     <connections>
                         <outlet property="buttonsContainer" destination="pMD-lm-B3D" id="CG0-gM-npg"/>
+                        <outlet property="daysForwardButton" destination="A5B-2y-ZOy" id="m9G-cI-3Qe"/>
+                        <outlet property="selectCalendarsButton" destination="Mdw-mK-Lhh" id="Myp-VT-WSY"/>
                         <outlet property="titleLabel" destination="W8w-1k-OT0" id="UF9-GX-iIF"/>
                     </connections>
                 </viewController>
@@ -321,6 +323,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="doneBar" destination="cz0-b6-pd6" id="XtW-ae-tGV"/>
                         <outlet property="tableView" destination="a1g-Er-jeD" id="29B-Fo-bEa"/>
                     </connections>
                 </viewController>
@@ -412,6 +415,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="doneBar" destination="Xe3-6s-2Pp" id="q0k-sB-Eww"/>
                         <outlet property="tableView" destination="Tmo-Gp-udt" id="yCa-VQ-wJW"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class AnimationUtilities {
+  static let DURATION: NSTimeInterval = 0.5
+
   static func frameInWindowOfView(view: UIView) -> CGRect {
     return view.superview!.convertRect(view.frame, toView: nil)
   }

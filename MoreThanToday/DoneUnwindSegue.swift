@@ -1,15 +1,15 @@
 //
-//  SettingsButtonSegue.swift
+//  DoneUnwindSegue.swift
 //  MoreThanToday
 //
-//  Created by Assaf Gelber on 7/9/15.
+//  Created by Gelber, Assaf on 7/10/15.
 //  Copyright (c) 2015 Gelber, Assaf. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class SettingsButtonSegue: UIStoryboardSegue {
+class DoneUnwindSegue: UIStoryboardSegue {
   var senderView: UIView!
   var targetView: UIView!
   var fadeViews = [UIView]()
@@ -22,28 +22,27 @@ class SettingsButtonSegue: UIStoryboardSegue {
     let transformView = UIView(frame: senderView.frame)
     transformView.backgroundColor = senderView.backgroundColor
     senderView.superview!.addSubview(transformView)
+    
+    senderView.alpha = 0
+
+    sourceVC.view.insertSubview(destinationVC.view, atIndex: 0)
 
     let sourceFrame = AnimationUtilities.frameInWindowOfView(transformView)
     var targetFrame = AnimationUtilities.frameInWindowOfView(targetView)
-
-    targetFrame.origin.y += 64
-    targetFrame.size.height -= 64
-
+    
     UIView.animateWithDuration(duration * 0.5, animations: {
       transformView.transform = AnimationUtilities.transformFromFrame(sourceFrame, toFrame: targetFrame)
       for view in self.fadeViews {
         view.alpha = 0
       }
     }, completion: { _ in
-      destinationVC.view.alpha = 0
-      sourceVC.view.addSubview(destinationVC.view)
       UIView.animateWithDuration(duration * 0.5, animations: {
-        destinationVC.view.alpha = 1
+        transformView.alpha = 0
       }, completion: { _ in
         transformView.removeFromSuperview()
-        destinationVC.view.removeFromSuperview()
-        sourceVC.presentViewController(destinationVC, animated: false, completion: nil)
+        sourceVC.dismissViewControllerAnimated(false, completion: nil)
       })
     })
+
   }
 }
