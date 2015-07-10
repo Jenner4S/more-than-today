@@ -323,7 +323,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="doneBar" destination="cz0-b6-pd6" id="XtW-ae-tGV"/>
+                        <outlet property="doneButton" destination="Fay-D6-CQV" id="52g-HK-nPl"/>
                         <outlet property="tableView" destination="a1g-Er-jeD" id="29B-Fo-bEa"/>
                     </connections>
                 </viewController>
@@ -415,7 +415,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="doneBar" destination="Xe3-6s-2Pp" id="q0k-sB-Eww"/>
+                        <outlet property="doneButton" destination="fB6-dH-Wkr" id="s33-Go-set"/>
                         <outlet property="tableView" destination="Tmo-Gp-udt" id="yCa-VQ-wJW"/>
                     </connections>
                 </viewController>

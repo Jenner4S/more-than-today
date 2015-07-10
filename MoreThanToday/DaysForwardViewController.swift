@@ -14,7 +14,11 @@ class DaysForwardViewController: UIViewController {
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
   
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var doneBar: UIView!
+  @IBOutlet weak var doneButton: UIButton! {
+    didSet {
+      doneButton.titleLabel?.text = NSLocalizedString("settings_done", tableName: "Settings", comment: "Button title for done button")
+    }
+  }
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)

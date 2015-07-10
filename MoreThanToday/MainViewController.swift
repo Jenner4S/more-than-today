@@ -18,10 +18,24 @@ class MainViewController: UIViewController {
 
   private var shouldPresentIntro = false
 
-  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var buttonsContainer: UIView!
-  @IBOutlet weak var daysForwardButton: BorderButton!
-  @IBOutlet weak var selectCalendarsButton: BorderButton!
+  @IBOutlet weak var daysForwardButton: BorderButton! {
+    didSet {
+      let title = NSLocalizedString("settings_days_forward_button", tableName: "Settings", comment: "Button title for days forward setting")
+      daysForwardButton.setTitle(title, forState: .Normal)
+    }
+  }
+  @IBOutlet weak var selectCalendarsButton: BorderButton! {
+    didSet {
+      let title = NSLocalizedString("settings_select_calendars_button", tableName: "Settings", comment: "Button title for calendars setting")
+      selectCalendarsButton.setTitle(title, forState: .Normal)
+    }
+  }
+  @IBOutlet weak var titleLabel: UILabel! {
+    didSet {
+      titleLabel.text = NSLocalizedString("settings_title", tableName: "Settings", comment: "Main title for settings app")
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,12 +65,12 @@ class MainViewController: UIViewController {
     case let sourceVC as DaysForwardViewController:
       segue.senderView = sourceVC.tableView
       segue.targetView = targetVC.daysForwardButton
-      segue.fadeViews.append(sourceVC.doneBar)
+      segue.fadeViews.append(sourceVC.doneButton)
       return segue
     case let sourceVC as SelectCalendarsViewController:
       segue.senderView = sourceVC.tableView
       segue.targetView = targetVC.selectCalendarsButton
-      segue.fadeViews.append(sourceVC.doneBar)
+      segue.fadeViews.append(sourceVC.doneButton)
       return segue
     default:
       return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
