@@ -165,13 +165,12 @@
 		092389A41B1D9C92000CC3D6 /* MoreThanToday */ = {
 			isa = PBXGroup;
 			children = (
-				CA01F68A1B2E334C0024481E /* MoreThanToday.entitlements */,
+				092389AE1B1D9C92000CC3D6 /* Images.xcassets */,
 				092389A71B1D9C92000CC3D6 /* AppDelegate.swift */,
 				09754EE31B31B8C1007C3B95 /* vc */,
 				09754EE21B31B8AB007C3B95 /* ui */,
 				09754EE41B31B8D6007C3B95 /* data */,
 				09754EE11B31B85B007C3B95 /* strings */,
-				092389AE1B1D9C92000CC3D6 /* Images.xcassets */,
 				092389A51B1D9C92000CC3D6 /* Supporting Files */,
 			);
 			path = MoreThanToday;
@@ -180,6 +179,7 @@
 		092389A51B1D9C92000CC3D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CA01F68A1B2E334C0024481E /* MoreThanToday.entitlements */,
 				092389A61B1D9C92000CC3D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -214,7 +214,6 @@
 		092389CF1B1D9D17000CC3D6 /* MoreThanTodayWidget */ = {
 			isa = PBXGroup;
 			children = (
-				092389E11B1D9E8C000CC3D6 /* MoreThanTodayWidget.entitlements */,
 				CABC25BE1B4DB2A500CE8551 /* vc */,
 				CABC25BF1B4DB2C100CE8551 /* ui */,
 				CABC25C01B4DB2D900CE8551 /* utils */,
@@ -226,6 +225,7 @@
 		092389D01B1D9D17000CC3D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				092389E11B1D9E8C000CC3D6 /* MoreThanTodayWidget.entitlements */,
 				092389D11B1D9D17000CC3D6 /* Info.plist */,
 			);
 			name = "Supporting Files";
