@@ -22,7 +22,10 @@ class SettingsButtonSegue: UIStoryboardSegue {
     senderView.superview!.addSubview(transformView)
 
     let sourceFrame = AnimationUtilities.frameInWindowOfView(transformView)
-    let targetFrame = AnimationUtilities.frameInWindowOfView(targetView)
+    var targetFrame = AnimationUtilities.frameInWindowOfView(targetView)
+
+    targetFrame.origin.y += 64
+    targetFrame.size.height -= 64
 
     UIView.animateWithDuration(0.25, animations: {
       transformView.transform = AnimationUtilities.transformFromFrame(sourceFrame, toFrame: targetFrame)
@@ -34,7 +37,7 @@ class SettingsButtonSegue: UIStoryboardSegue {
       }, completion: { _ in
         transformView.removeFromSuperview()
         destinationVC.view.removeFromSuperview()
-        sourceVC.navigationController?.pushViewController(destinationVC, animated: false)
+        sourceVC.presentViewController(destinationVC, animated: false, completion: nil)
       })
     })
   }

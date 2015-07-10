@@ -17,11 +17,10 @@ class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, U
   func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
     let container = transitionContext.containerView()
     let introVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! IntroViewController
-    let navVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! UINavigationController
-    let mainVC = navVC.topViewController as! MainViewController
+    let mainVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! MainViewController
     let duration = self.transitionDuration(transitionContext)
 
-    container.addSubview(navVC.view)
+    container.addSubview(mainVC.view)
     container.addSubview(introVC.view)
 
     mainVC.titleLabel.alpha = 0

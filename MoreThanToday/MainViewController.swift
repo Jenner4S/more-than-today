@@ -16,11 +16,19 @@ class MainViewController: UIViewController {
     return storyboard.instantiateViewControllerWithIdentifier("intro") as! IntroViewController
   }()
 
+  private var shouldPresentIntro = false
+
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var buttonsContainer: UIView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.shouldPresentIntro = !self.didUserSeeIntro()
+  }
+
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
 
     self.showIntroIfNeeded()
   }
@@ -32,19 +40,23 @@ class MainViewController: UIViewController {
     }
   }
 
+  @IBAction func unwindFromViewController(segue: UIStoryboardSegue) {
+  }
+
   private func showIntroIfNeeded() {
-    if shouldPresentIntro() {
+    if shouldPresentIntro {
       presentViewController(introViewController, animated: false) {
+        self.shouldPresentIntro = false
         self.defaults?.setBool(true, forKey: DefaultsConstants.SAW_INTRO_KEY)
         self.defaults?.synchronize()
       }
     }
   }
 
-  private func shouldPresentIntro() -> Bool {
+  private func didUserSeeIntro() -> Bool {
     if let defaults = defaults {
-      return !defaults.boolForKey(DefaultsConstants.SAW_INTRO_KEY)
+      return defaults.boolForKey(DefaultsConstants.SAW_INTRO_KEY)
     }
-    return false
+    return true
   }
 }
