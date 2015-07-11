@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import EventKit
 
 class MainViewController: UIViewController {
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
 
   lazy private var introViewController: IntroViewController = {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    return storyboard.instantiateViewControllerWithIdentifier("intro") as! IntroViewController
+    let intro = storyboard.instantiateViewControllerWithIdentifier("intro") as! IntroViewController
+    intro.delegate = self
+    return intro
   }()
 
   private var shouldPresentIntro = false
@@ -79,11 +82,7 @@ class MainViewController: UIViewController {
 
   private func showIntroIfNeeded() {
     if shouldPresentIntro {
-      presentViewController(introViewController, animated: false) {
-        self.shouldPresentIntro = false
-        self.defaults?.setBool(true, forKey: DefaultsConstants.SAW_INTRO_KEY)
-        self.defaults?.synchronize()
-      }
+      presentViewController(introViewController, animated: false, completion: nil)
     }
   }
 
@@ -92,5 +91,25 @@ class MainViewController: UIViewController {
       return defaults.boolForKey(DefaultsConstants.SAW_INTRO_KEY)
     }
     return true
+  }
+
+  private func requestPermissionsIfNeeded() {
+    if EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) != .Authorized {
+      EKEventStore().requestAccessToEntityType(EKEntityTypeEvent) { _, _ in }
+    }
+  }
+
+  private func saveIntroSeen() {
+    self.defaults?.setBool(true, forKey: DefaultsConstants.SAW_INTRO_KEY)
+    self.defaults?.synchronize()
+  }
+}
+
+extension MainViewController: IntroDelegate {
+  func introDismissed() {
+    dismissViewControllerAnimated(true, completion: nil)
+    self.shouldPresentIntro = false
+    self.saveIntroSeen()
+    self.requestPermissionsIfNeeded()
   }
 }

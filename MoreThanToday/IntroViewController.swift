@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol IntroDelegate: class {
+  func introDismissed()
+}
+
 class IntroViewController: UIViewController {
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
 
@@ -18,9 +22,12 @@ class IntroViewController: UIViewController {
 
   let transitionManager = IntroDismissTransition()
 
+  var delegate: IntroDelegate?
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.transitioningDelegate = self.transitionManager
     self.localize()
   }
 
@@ -31,7 +38,6 @@ class IntroViewController: UIViewController {
   }
 
   @IBAction func dismissTapped(sender: UIButton) {
-    self.transitioningDelegate = self.transitionManager
-    dismissViewControllerAnimated(true, completion: nil)
+    self.delegate?.introDismissed()
   }
 }
