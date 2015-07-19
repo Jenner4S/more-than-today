@@ -45,14 +45,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    fetchEvents()
-  }
-
   func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-    fetchEvents()
-    completionHandler(.NewData)
+    fetchEvents(completionHandler)
   }
 
   private func updatePreferredContentSize() {
@@ -68,24 +62,35 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     store.requestAccessToEntityType(EKEntityTypeEvent, completion: completion)
   }
 
-  private func fetchEvents() {
+  private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
     self.events = EventCache.eventsFromCache()
+    reloadDataWithCompletion(completionHandler, result: .NoData)
 
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
+        var updateResult = NCUpdateResult.NoData
         let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
         let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
         if let ekEvents = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
-          self.events = ekEvents.map { Event(ekEvent: $0) }
+          let newEvents = ekEvents.map { Event(ekEvent: $0) }
+          updateResult = newEvents != self.events ? .NewData : .NoData
+          self.events = newEvents
           EventCache.cacheEvents(self.events)
         } else {
+          updateResult = .Failed
           self.events = []
         }
-
-        self.tableView.reloadData()
-        self.updatePreferredContentSize()
+        self.reloadDataWithCompletion(completionHandler, result: updateResult)
+      } else {
+        completionHandler(.Failed)
       }
     }
+  }
+
+  private func reloadDataWithCompletion(completionHandler: (NCUpdateResult) -> Void, result: NCUpdateResult) {
+    self.tableView.reloadData()
+    self.updatePreferredContentSize()
+    completionHandler(result)
   }
 }
 
