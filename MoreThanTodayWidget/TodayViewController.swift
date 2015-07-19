@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
   private let store = EKEventStore()
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
-  private var events = [EKEvent]()
+  private var events = [Event]()
 
   private var daysForward: Int {
     if let days = defaults?.integerForKey(DefaultsConstants.DAYS_FORWARD_KEY) {
@@ -75,9 +75,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       if granted {
         let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
         let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
-        if let events = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
-          self.events = events
-          EventCache.cacheEvents(events)
+        if let ekEvents = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
+          self.events = ekEvents.map { Event(ekEvent: $0) }
+          EventCache.cacheEvents(self.events)
         } else {
           self.events = []
         }

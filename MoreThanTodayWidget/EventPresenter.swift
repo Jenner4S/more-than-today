@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import EventKit
 
 class EventPresenter {
   private static let TODAY = NSLocalizedString("today", tableName: "Widget", comment: "Date shown for events which occur today")
   private static let TOMORROW = NSLocalizedString("tomorrow", tableName: "Widget", comment: "Date shown for events which occur tomorrow")
   static let ALL_DAY = NSLocalizedString("all_day", tableName: "Widget", comment: "Text shown for events which are all day")
 
-  private let event: EKEvent
+  private let event: Event
 
   lazy private var timeFormatter: NSDateFormatter = {
     let _formatter = NSDateFormatter()
@@ -35,7 +34,7 @@ class EventPresenter {
     return _formatter
   }()
 
-  init(forEvent event: EKEvent) {
+  init(forEvent event: Event) {
     self.event = event
   }
 
@@ -48,7 +47,7 @@ class EventPresenter {
   }
 
   var date: String {
-    let startDate = event.startDate
+    let startDate = event.start
     if startDate < DatesHelper.tomorrow {
       return EventPresenter.TODAY
     } else if startDate < DatesHelper.twoDaysFromNow {
@@ -61,11 +60,11 @@ class EventPresenter {
   }
 
   var startTime: String {
-    return timeFormatter.stringFromDate(event.startDate)
+    return timeFormatter.stringFromDate(event.start)
   }
 
   var endTime: String {
-    return timeFormatter.stringFromDate(event.endDate)
+    return timeFormatter.stringFromDate(event.end)
   }
 }
 

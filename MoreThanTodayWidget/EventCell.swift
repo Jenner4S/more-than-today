@@ -8,11 +8,10 @@
 
 import UIKit
 import Foundation
-import EventKit
 
 class EventCell: UITableViewCell {
 
-  var event: EKEvent? {
+  var event: Event? {
     didSet {
       if let event = self.event {
         eventPresenter = EventPresenter(forEvent: event)
