@@ -39,6 +39,18 @@ class MainViewController: UIViewController {
       titleLabel.text = NSLocalizedString("settings_title", tableName: "Settings", comment: "Main title for settings app")
     }
   }
+  @IBOutlet weak var builtByLabel: UILabel! {
+    didSet {
+      builtByLabel.text = NSLocalizedString("settings_built_by", tableName: "Settings", comment: "I built this!")
+    }
+  }
+  @IBOutlet weak var versionLabel: UILabel! {
+    didSet {
+      let currentVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+      let versionTemplate = NSLocalizedString("settings_version", tableName: "Settings", comment: "The current version template")
+      versionLabel.text = NSString.localizedStringWithFormat(versionTemplate, currentVersion) as String
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -102,6 +114,10 @@ class MainViewController: UIViewController {
   private func saveIntroSeen() {
     self.defaults?.setBool(true, forKey: DefaultsConstants.SAW_INTRO_KEY)
     self.defaults?.synchronize()
+  }
+
+  @IBAction func didTapBuiltByAndVersion(sender: UITapGestureRecognizer) {
+    UIApplication.sharedApplication().openURL(NSURL(string: "https://twitter.com/assafgelber")!)
   }
 }
 

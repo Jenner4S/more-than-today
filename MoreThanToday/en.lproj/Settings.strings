@@ -14,6 +14,8 @@
 "settings_done" = "Done";
 "settings_days_forward_button" = "Days forward to display";
 "settings_select_calendars_button" = "Calendars to display";
+"settings_built_by" = "Built by @assafgelber";
+"settings_version" = "Version %@";
 
 "daysForward.3days"  = "3 days";
 "daysForward.1week"  = "1 week";
