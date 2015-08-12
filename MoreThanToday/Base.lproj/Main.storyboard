@@ -72,28 +72,31 @@
                                             <segue destination="gu6-iX-6De" kind="custom" identifier="Days Forward Segue" customClass="SettingsButtonSegue" customModule="MoreThanToday" customModuleProvider="target" id="dYp-Vm-Pja"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-mK-Lhh" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="43" width="600" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iie-QI-uGC">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use 24 hour format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNu-gm-F3P">
+                                                <rect key="frame" x="12" y="11" width="148" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYC-be-jZi">
+                                                <rect key="frame" x="539" y="6" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="didChangeHourFormat:" destination="BYZ-38-t0r" eventType="valueChanged" id="PJJ-ar-LEg"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="gkd-ye-iBD"/>
+                                            <constraint firstAttribute="trailing" secondItem="cYC-be-jZi" secondAttribute="trailing" constant="12" id="FgW-Ba-tGd"/>
+                                            <constraint firstAttribute="centerY" secondItem="HNu-gm-F3P" secondAttribute="centerY" id="REm-dp-bfI"/>
+                                            <constraint firstAttribute="centerY" secondItem="cYC-be-jZi" secondAttribute="centerY" id="pHQ-kr-lBv"/>
+                                            <constraint firstItem="HNu-gm-F3P" firstAttribute="leading" secondItem="Iie-QI-uGC" secondAttribute="leading" constant="12" id="uRx-2P-UEd"/>
+                                            <constraint firstAttribute="height" constant="44" id="yWP-D8-dmX"/>
                                         </constraints>
-                                        <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Calendars to display">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="28v-le-dx2" kind="custom" identifier="Selected Identifiers Segue" customClass="SettingsButtonSegue" customModule="MoreThanToday" customModuleProvider="target" id="jb8-Ly-8aA"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPD-dz-8pZ">
                                         <rect key="frame" x="231" y="343" width="139" height="37"/>
                                         <subviews>
@@ -130,17 +133,42 @@
                                             <outletCollection property="gestureRecognizers" destination="55A-6V-oZg" appends="YES" id="WbR-vv-DSH"/>
                                         </connections>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-mK-Lhh" customClass="BorderButton" customModule="MoreThanToday" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="43" width="600" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="gkd-ye-iBD"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Calendars to display">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="28v-le-dx2" kind="custom" identifier="Selected Identifiers Segue" customClass="SettingsButtonSegue" customModule="MoreThanToday" customModuleProvider="target" id="jb8-Ly-8aA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="fPD-dz-8pZ" secondAttribute="centerX" id="0AB-fu-guM"/>
                                     <constraint firstAttribute="trailing" secondItem="Mdw-mK-Lhh" secondAttribute="trailing" id="5r6-Lg-Dar"/>
                                     <constraint firstItem="A5B-2y-ZOy" firstAttribute="leading" secondItem="pMD-lm-B3D" secondAttribute="leading" id="EFC-UC-WVj"/>
-                                    <constraint firstItem="fPD-dz-8pZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mdw-mK-Lhh" secondAttribute="bottom" constant="24" id="NCY-fg-6Jc"/>
                                     <constraint firstItem="Mdw-mK-Lhh" firstAttribute="top" secondItem="A5B-2y-ZOy" secondAttribute="bottom" constant="-1" id="cnS-xI-qHu"/>
                                     <constraint firstItem="A5B-2y-ZOy" firstAttribute="top" secondItem="pMD-lm-B3D" secondAttribute="top" id="dWf-rI-ePU"/>
+                                    <constraint firstItem="fPD-dz-8pZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Iie-QI-uGC" secondAttribute="bottom" constant="24" id="evj-bz-wJm"/>
                                     <constraint firstAttribute="height" constant="536" id="f29-Un-zYl"/>
+                                    <constraint firstItem="Iie-QI-uGC" firstAttribute="top" secondItem="Mdw-mK-Lhh" secondAttribute="bottom" constant="12" id="gLI-P8-lWC"/>
                                     <constraint firstAttribute="bottom" secondItem="fPD-dz-8pZ" secondAttribute="bottom" priority="750" constant="12" id="h7n-RP-MHN"/>
+                                    <constraint firstItem="Iie-QI-uGC" firstAttribute="leading" secondItem="pMD-lm-B3D" secondAttribute="leading" id="hwI-R9-y7D"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iie-QI-uGC" secondAttribute="trailing" id="o3e-Fh-90T"/>
                                     <constraint firstItem="Mdw-mK-Lhh" firstAttribute="leading" secondItem="pMD-lm-B3D" secondAttribute="leading" id="rCx-DA-sL5"/>
                                     <constraint firstAttribute="trailing" secondItem="A5B-2y-ZOy" secondAttribute="trailing" id="u1D-4a-bDJ"/>
                                 </constraints>
@@ -173,6 +201,8 @@
                         <outlet property="builtByLabel" destination="G7V-fg-uDL" id="UGR-N2-zYA"/>
                         <outlet property="buttonsContainer" destination="pMD-lm-B3D" id="CG0-gM-npg"/>
                         <outlet property="daysForwardButton" destination="A5B-2y-ZOy" id="m9G-cI-3Qe"/>
+                        <outlet property="hourFormatLabel" destination="HNu-gm-F3P" id="8XU-Ps-vax"/>
+                        <outlet property="hourFormatSwitch" destination="cYC-be-jZi" id="EbJ-eN-0Kx"/>
                         <outlet property="selectCalendarsButton" destination="Mdw-mK-Lhh" id="Myp-VT-WSY"/>
                         <outlet property="titleLabel" destination="W8w-1k-OT0" id="UF9-GX-iIF"/>
                         <outlet property="versionLabel" destination="iq4-fB-qfK" id="mYx-SL-mYh"/>

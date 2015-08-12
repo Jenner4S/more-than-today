@@ -13,6 +13,8 @@ struct DefaultsConstants {
   static let DAYS_FORWARD_KEY = "daysForward"
   static let DEFAULT_DAYS_FORWARD = 30
   static let CALENDARS_KEY = "calendars"
+  static let HOURS_KEY = "use24Hours"
+  static let DEFAULT_HOURS = true
   static let SAW_INTRO_KEY = "sawIntro"
   static let EVENTS_CACHE_KEY = "cachedEvents"
 }
