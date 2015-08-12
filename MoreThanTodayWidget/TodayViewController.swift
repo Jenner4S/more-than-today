@@ -75,11 +75,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
           let newEvents = ekEvents.map { Event(ekEvent: $0) }
           updateResult = newEvents != self.events ? .NewData : .NoData
           self.events = newEvents
-          EventCache.cacheEvents(self.events)
         } else {
-          updateResult = .Failed
+          updateResult = .NoData
           self.events = []
         }
+        EventCache.cacheEvents(self.events)
         self.reloadDataWithCompletion(completionHandler, result: updateResult)
       } else {
         completionHandler(.Failed)
