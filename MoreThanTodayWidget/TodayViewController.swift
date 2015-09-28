@@ -36,7 +36,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
   @IBOutlet weak var tableView: UITableView! {
     didSet {
-      tableView?.dataSource = self
       tableView?.layoutMargins = UIEdgeInsetsZero
       tableView?.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
     }
@@ -101,7 +100,7 @@ extension TodayViewController {
 
 // MARK: UITableViewDataSource
 
-extension TodayViewController: UITableViewDataSource {
+extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return max(events.count, 1)
   }
@@ -112,6 +111,13 @@ extension TodayViewController: UITableViewDataSource {
 
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return events.isEmpty ? nil : HeaderPresenter(forDate: events[section].first!.start).title
+  }
+
+  func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    if let view = view as? UITableViewHeaderFooterView {
+      view.textLabel?.textColor = UIColor.whiteColor()
+      view.textLabel?.alpha = 0.5
+    }
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

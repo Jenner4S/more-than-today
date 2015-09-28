@@ -121,6 +121,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="QWl-tV-kvH"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="Acn-0j-19m"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
