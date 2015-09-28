@@ -17,6 +17,7 @@
 		092389D81B1D9D17000CC3D6 /* MoreThanTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 092389CB1B1D9D17000CC3D6 /* MoreThanTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		092389DE1B1D9D1F000CC3D6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092389DD1B1D9D1F000CC3D6 /* EventKit.framework */; };
 		092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092389DF1B1D9D53000CC3D6 /* EventCell.swift */; };
+		093F576F1BB970DD00E5ECC6 /* HeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093F576E1BB970DD00E5ECC6 /* HeaderPresenter.swift */; };
 		096E19011B4FCD2300D0EF79 /* DoneUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E19001B4FCD2300D0EF79 /* DoneUnwindSegue.swift */; };
 		09754ED21B31A912007C3B95 /* DaysForwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754ED11B31A912007C3B95 /* DaysForwardViewController.swift */; };
 		09754ED41B31AA08007C3B95 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754ED31B31AA08007C3B95 /* OptionCell.swift */; };
@@ -90,6 +91,7 @@
 		092389DD1B1D9D1F000CC3D6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		092389DF1B1D9D53000CC3D6 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		092389E11B1D9E8C000CC3D6 /* MoreThanTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoreThanTodayWidget.entitlements; sourceTree = "<group>"; };
+		093F576E1BB970DD00E5ECC6 /* HeaderPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderPresenter.swift; sourceTree = "<group>"; };
 		096E19001B4FCD2300D0EF79 /* DoneUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneUnwindSegue.swift; sourceTree = "<group>"; };
 		09754ED11B31A912007C3B95 /* DaysForwardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysForwardViewController.swift; sourceTree = "<group>"; };
 		09754ED31B31AA08007C3B95 /* OptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				CA99DA831B2AF50A00267948 /* EventPresenter.swift */,
+				093F576E1BB970DD00E5ECC6 /* HeaderPresenter.swift */,
 			);
 			name = presenters;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				CA33D5FB1B5C376600A9E33B /* Event.swift in Sources */,
 				092389E01B1D9D53000CC3D6 /* EventCell.swift in Sources */,
 				09A31E421B4480A7009B7401 /* EmptyStateCell.swift in Sources */,
+				093F576F1BB970DD00E5ECC6 /* HeaderPresenter.swift in Sources */,
 				CA01F68D1B2E366A0024481E /* DefaultsConstants.swift in Sources */,
 				CA0D1B991B2E2A7300C8F557 /* DatesHelper.swift in Sources */,
 				09CE0E061B3AF0E00025BA5D /* EventCache.swift in Sources */,

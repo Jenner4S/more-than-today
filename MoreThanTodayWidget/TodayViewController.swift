@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
   private let store = EKEventStore()
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
-  private var events = [Event]()
+  private var events = [[Event]]()
 
   private var daysForward: Int {
     if let days = defaults?.integerForKey(DefaultsConstants.DAYS_FORWARD_KEY) {
@@ -36,6 +36,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     didSet {
       tableView?.dataSource = self
       tableView?.layoutMargins = UIEdgeInsetsZero
+      tableView?.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
     }
   }
 
@@ -44,7 +45,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func updatePreferredContentSize() {
-    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(max(events.count, 1)) * 44.0)
+    let headerHeight = events.count * 42
+    let eventHeight = events.reduce(0, combine: { $0 + $1.count * 44 })
+    let emptyHeight = events.isEmpty ? 44 : 0
+    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(headerHeight + eventHeight + emptyHeight))
   }
 
   private func reloadDataWithCompletion(completionHandler: (NCUpdateResult) -> Void, result: NCUpdateResult) {
@@ -71,7 +75,7 @@ extension TodayViewController {
         let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
         let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
         if let ekEvents = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
-          let newEvents = ekEvents.map { Event(ekEvent: $0) }
+          let newEvents = self.groupEvents(ekEvents.map { Event(ekEvent: $0) })
           updateResult = newEvents != self.events ? .NewData : .NoData
           self.events = newEvents
         } else {
@@ -85,22 +89,41 @@ extension TodayViewController {
       }
     }
   }
+
+  private func groupEvents(events: [Event]) -> [[Event]] {
+    let calendar = NSCalendar.currentCalendar()
+    var grouped = [NSDate: [Event]]()
+    for event in events {
+      let key = calendar.startOfDayForDate(event.start)
+      grouped[key] = (grouped[key] ?? []) + [event]
+    }
+    return grouped.values.array.sorted { $0.first!.start < $1.first!.start }
+  }
 }
 
 // MARK: UITableViewDataSource
 
 extension TodayViewController: UITableViewDataSource {
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return max(events.count, 1)
   }
 
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return events.isEmpty ? 1 : events[section].count
+  }
+
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return events.isEmpty ? nil : HeaderPresenter(forDate: events[section].first!.start).title
+  }
+
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if events.count > 0 {
-      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
-      cell.event = events[indexPath.row]
-      return cell
-    } else {
+    if events.isEmpty {
       return tableView.dequeueReusableCellWithIdentifier("EmptyStateCell") as! EmptyStateCell
+    } else {
+      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
+      cell.event = events[indexPath.section][indexPath.row]
+      return cell
     }
   }
+
 }
