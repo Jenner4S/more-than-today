@@ -11,6 +11,8 @@ import NotificationCenter
 import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+  private let HEADER_HEIGHT = 42
+  private let CELL_HEIGHT = 54
 
   private let store = EKEventStore()
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
@@ -45,10 +47,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func updatePreferredContentSize() {
-    let headerHeight = events.count * 42
-    let eventHeight = events.reduce(0, combine: { $0 + $1.count * 44 })
-    let emptyHeight = events.isEmpty ? 44 : 0
-    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(headerHeight + eventHeight + emptyHeight))
+    let headersHeight = events.count * HEADER_HEIGHT
+    let eventsHeight = events.reduce(0, combine: { $0 + $1.count * CELL_HEIGHT })
+    let emptyHeight = events.isEmpty ? CELL_HEIGHT : 0
+    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(headersHeight + eventsHeight + emptyHeight))
   }
 
   private func reloadDataWithCompletion(completionHandler: (NCUpdateResult) -> Void, result: NCUpdateResult) {

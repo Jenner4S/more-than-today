@@ -9,37 +9,19 @@
 import Foundation
 
 class EventPresenter {
-  private static let TODAY = NSLocalizedString("today", tableName: "Widget", comment: "Date shown for events which occur today")
-  private static let TOMORROW = NSLocalizedString("tomorrow", tableName: "Widget", comment: "Date shown for events which occur tomorrow")
   static let ALL_DAY = NSLocalizedString("all_day", tableName: "Widget", comment: "Text shown for events which are all day")
 
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
 
   private let event: Event
 
-  lazy private var isUsing24Hour: Bool = {
-    return self.defaults?.boolForKey(DefaultsConstants.HOURS_KEY) ?? DefaultsConstants.DEFAULT_HOURS
-  }()
-
   private var timeFormatter: NSDateFormatter {
     let _formatter = NSDateFormatter()
-    _formatter.dateFormat = self.isUsing24Hour ? "HH:mm" : "hh:mm"
+    _formatter.dateStyle = .NoStyle
+    _formatter.timeStyle = .ShortStyle
     return _formatter
   }
   
-  lazy private var weekdayFormatter: NSDateFormatter = {
-    let _formatter = NSDateFormatter()
-    _formatter.dateFormat = "EEEE"
-    return _formatter
-  }()
-
-  lazy private var dateFormatter: NSDateFormatter = {
-    let _formatter = NSDateFormatter()
-    _formatter.dateStyle = .ShortStyle
-    _formatter.timeStyle = .NoStyle
-    return _formatter
-  }()
-
   init(forEvent event: Event) {
     self.event = event
   }
@@ -50,19 +32,6 @@ class EventPresenter {
 
   var location: String {
     return event.location != "" ? event.location : "-"
-  }
-
-  var date: String {
-    let startDate = event.start
-    if startDate < DatesHelper.tomorrow {
-      return EventPresenter.TODAY
-    } else if startDate < DatesHelper.twoDaysFromNow {
-      return EventPresenter.TOMORROW
-    } else if startDate < DatesHelper.oneWeekFromNow {
-      return weekdayFormatter.stringFromDate(startDate)
-    } else {
-      return dateFormatter.stringFromDate(startDate)
-    }
   }
 
   var startTime: String {
