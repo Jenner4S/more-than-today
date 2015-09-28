@@ -26,13 +26,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   private var calendars: [EKCalendar]? {
     if let ids = defaults?.arrayForKey(DefaultsConstants.CALENDARS_KEY) as? [String] {
       if ids.count > 0 {
-        var calendars = [EKCalendar]()
-        for identifier in ids {
-          calendars.append(store.calendarWithIdentifier(identifier))
-        }
-        return calendars
+        return ids.map { self.store.calendarWithIdentifier($0) }
       }
-      return nil
     }
     return nil
   }
