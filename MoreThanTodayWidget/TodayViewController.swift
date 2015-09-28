@@ -39,9 +39,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
   @IBOutlet weak var tableView: UITableView! {
     didSet {
-      if tableView != nil {
-        setupTableView()
-      }
+      tableView?.dataSource = self
+      tableView?.layoutMargins = UIEdgeInsetsZero
     }
   }
 
@@ -53,19 +52,24 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(max(events.count, 1)) * 44.0)
   }
 
-  private func setupTableView() {
-    tableView.dataSource = self
-    tableView.layoutMargins = UIEdgeInsetsZero
+  private func reloadDataWithCompletion(completionHandler: (NCUpdateResult) -> Void, result: NCUpdateResult) {
+    self.tableView.reloadData()
+    self.updatePreferredContentSize()
+    completionHandler(result)
   }
+}
 
+// MARK: Event Fetching
+
+extension TodayViewController {
   private func requestAccessToEvents(completion: (Bool, NSError?) -> Void) {
     store.requestAccessToEntityType(EKEntityTypeEvent, completion: completion)
   }
-
+  
   private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
     self.events = EventCache.eventsFromCache()
     reloadDataWithCompletion(completionHandler, result: .NoData)
-
+    
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
         var updateResult = NCUpdateResult.NoData
@@ -86,13 +90,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       }
     }
   }
-
-  private func reloadDataWithCompletion(completionHandler: (NCUpdateResult) -> Void, result: NCUpdateResult) {
-    self.tableView.reloadData()
-    self.updatePreferredContentSize()
-    completionHandler(result)
-  }
 }
+
+// MARK: UITableViewDataSource
 
 extension TodayViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
