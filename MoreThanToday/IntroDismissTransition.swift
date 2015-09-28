@@ -20,8 +20,8 @@ class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, U
     let mainVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! MainViewController
     let duration = self.transitionDuration(transitionContext)
 
-    container.addSubview(mainVC.view)
-    container.addSubview(introVC.view)
+    container!.addSubview(mainVC.view)
+    container!.addSubview(introVC.view)
 
     mainVC.titleLabel.alpha = 0
     mainVC.buttonsContainer.alpha = 0

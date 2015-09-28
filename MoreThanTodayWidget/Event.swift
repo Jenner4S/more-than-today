@@ -16,7 +16,7 @@ private let START_KEY = "start"
 private let END_KEY = "end"
 private let ALL_DAY_KEY = "allDay"
 
-class Event: NSObject, NSCoding, Equatable {
+class Event: NSObject, NSCoding {
   let identifier: String
   let title: String
   let location: String
@@ -27,7 +27,7 @@ class Event: NSObject, NSCoding, Equatable {
   init(ekEvent: EKEvent) {
     self.identifier = ekEvent.eventIdentifier
     self.title = ekEvent.title
-    self.location = ekEvent.location
+    self.location = ekEvent.location ?? ""
     self.start = ekEvent.startDate
     self.end = ekEvent.endDate
     self.allDay = ekEvent.allDay

@@ -102,7 +102,7 @@ class MainViewController: UIViewController {
       segue.fadeViews.append(sourceVC.doneButton)
       return segue
     default:
-      return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
+      return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)!
     }
   }
 

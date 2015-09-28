@@ -26,7 +26,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   private var calendars: [EKCalendar]? {
     if let ids = defaults?.arrayForKey(DefaultsConstants.CALENDARS_KEY) as? [String] {
       if ids.count > 0 {
-        return ids.map { self.store.calendarWithIdentifier($0) }
+        return ids.map { self.store.calendarWithIdentifier($0)! }
       }
     }
     return nil
@@ -74,14 +74,10 @@ extension TodayViewController {
         var updateResult = NCUpdateResult.NoData
         let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
         let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
-        if let ekEvents = self.store.eventsMatchingPredicate(predicate) as? [EKEvent] {
-          let newEvents = self.groupEvents(ekEvents.map { Event(ekEvent: $0) })
-          updateResult = newEvents != self.events ? .NewData : .NoData
-          self.events = newEvents
-        } else {
-          updateResult = .NoData
-          self.events = []
-        }
+        let ekEvents = self.store.eventsMatchingPredicate(predicate)
+        let newEvents = self.groupEvents(ekEvents.map { Event(ekEvent: $0) })
+        updateResult = newEvents != self.events ? .NewData : .NoData
+        self.events = newEvents
         EventCache.cacheEvents(self.events)
         self.reloadDataWithCompletion(completionHandler, result: updateResult)
       } else {
@@ -97,7 +93,7 @@ extension TodayViewController {
       let key = calendar.startOfDayForDate(event.start)
       grouped[key] = (grouped[key] ?? []) + [event]
     }
-    return grouped.values.array.sort { $0.first!.start < $1.first!.start }
+    return grouped.values.sort { $0.first!.start < $1.first!.start }
   }
 }
 
