@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
-  func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
     return AnimationUtilities.DURATION
   }
 
@@ -29,7 +29,7 @@ class IntroDismissTransition: NSObject, UIViewControllerAnimatedTransitioning, U
     UIView.animateWithDuration(duration * 0.5, animations: {
       introVC.view.alpha = 0
     })
-    UIView.animateWithDuration(duration * 0.5, delay: duration * 0.5, options: nil, animations: {
+    UIView.animateWithDuration(duration * 0.5, delay: duration * 0.5, options: [], animations: {
       mainVC.buttonsContainer.alpha = 1
       mainVC.titleLabel.alpha = 1
     }, completion: { finished in

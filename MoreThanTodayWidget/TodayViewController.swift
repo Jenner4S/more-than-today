@@ -40,7 +40,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
   }
 
-  func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+  func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
     fetchEvents(completionHandler)
   }
 
@@ -62,7 +62,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 extension TodayViewController {
   private func requestAccessToEvents(completion: (Bool, NSError?) -> Void) {
-    store.requestAccessToEntityType(EKEntityTypeEvent, completion: completion)
+    store.requestAccessToEntityType(EKEntityType.Event, completion: completion)
   }
   
   private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
@@ -97,7 +97,7 @@ extension TodayViewController {
       let key = calendar.startOfDayForDate(event.start)
       grouped[key] = (grouped[key] ?? []) + [event]
     }
-    return grouped.values.array.sorted { $0.first!.start < $1.first!.start }
+    return grouped.values.array.sort { $0.first!.start < $1.first!.start }
   }
 }
 

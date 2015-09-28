@@ -33,7 +33,7 @@ class Event: NSObject, NSCoding, Equatable {
     self.allDay = ekEvent.allDay
   }
 
-  required init(coder decoder: NSCoder) {
+  required init?(coder decoder: NSCoder) {
     self.identifier = decoder.decodeObjectForKey(IDENTIFIER_KEY) as! String
     self.title = decoder.decodeObjectForKey(TITLE_KEY) as! String
     self.location = decoder.decodeObjectForKey(LOCATION_KEY) as! String

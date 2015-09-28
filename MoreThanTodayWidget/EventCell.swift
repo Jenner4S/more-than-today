@@ -29,7 +29,7 @@ class EventCell: UITableViewCell {
   @IBOutlet weak var separatorLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setup()
   }

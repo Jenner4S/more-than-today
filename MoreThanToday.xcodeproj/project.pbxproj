@@ -413,6 +413,8 @@
 		0923899A1B1D9C92000CC3D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Gelber, Assaf";
 				TargetAttributes = {

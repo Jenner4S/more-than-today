@@ -20,7 +20,7 @@ class DaysForwardViewController: UIViewController {
     }
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     selectedValue = getInitialValue()
   }
@@ -38,7 +38,7 @@ class DaysForwardViewController: UIViewController {
   }
 
   private func setInitialSelected() {
-    for (index, option) in enumerate(DAYS_FORWARD_OPTIONS) {
+    for (index, option) in DAYS_FORWARD_OPTIONS.enumerate() {
       if selectedValue == option.value {
         tableView.selectRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0), animated: false, scrollPosition: .Top)
         break

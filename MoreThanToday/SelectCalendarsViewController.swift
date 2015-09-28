@@ -25,7 +25,7 @@ class SelectCalendarsViewController: UIViewController {
     }
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     calendars = loadCalendars()
     selectedCalendars = getInitialValue()
@@ -37,8 +37,8 @@ class SelectCalendarsViewController: UIViewController {
   }
 
   private func loadCalendars() -> [EKCalendar] {
-    if let calendars = store.calendarsForEntityType(EKEntityTypeEvent) as? [EKCalendar] {
-      return sorted(calendars) { $0.title.lowercaseString < $1.title.lowercaseString }
+    if let calendars = store.calendarsForEntityType(EKEntityType.Event) as? [EKCalendar] {
+      return calendars.sort { $0.title.lowercaseString < $1.title.lowercaseString }
     }
     return []
   }
@@ -51,8 +51,8 @@ class SelectCalendarsViewController: UIViewController {
   }
 
   private func setInitialSelected() {
-    for (index, calendar) in enumerate(calendars) {
-      if contains(selectedCalendars, calendar.calendarIdentifier) {
+    for (index, calendar) in calendars.enumerate() {
+      if selectedCalendars.contains(calendar.calendarIdentifier) {
         tableView.selectRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0), animated: false, scrollPosition: .Top)
       }
     }
@@ -88,7 +88,7 @@ extension SelectCalendarsViewController: UITableViewDelegate {
 
   func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
     let calendarId = calendars[indexPath.row].calendarIdentifier
-    if let calendarIndex = find(selectedCalendars, calendarId) {
+    if let calendarIndex = selectedCalendars.indexOf(calendarId) {
       selectedCalendars.removeAtIndex(calendarIndex)
       saveSelectedCalendars()
     }

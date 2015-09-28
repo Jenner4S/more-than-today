@@ -120,8 +120,8 @@ class MainViewController: UIViewController {
   }
 
   private func requestPermissionsIfNeeded() {
-    if EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) != .Authorized {
-      EKEventStore().requestAccessToEntityType(EKEntityTypeEvent) { _, _ in }
+    if EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) != .Authorized {
+      EKEventStore().requestAccessToEntityType(EKEntityType.Event) { _, _ in }
     }
   }
 

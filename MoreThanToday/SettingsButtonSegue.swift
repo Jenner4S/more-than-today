@@ -15,8 +15,8 @@ class SettingsButtonSegue: UIStoryboardSegue {
   var fadeViews = [UIView]()
 
   override func perform() {
-    let sourceVC = self.sourceViewController as! UIViewController
-    let destinationVC = self.destinationViewController as! UIViewController
+    let sourceVC = self.sourceViewController 
+    let destinationVC = self.destinationViewController 
     let duration = AnimationUtilities.DURATION
 
     let transformView = UIView(frame: senderView.frame)

@@ -15,8 +15,8 @@ class DoneUnwindSegue: UIStoryboardSegue {
   var fadeViews = [UIView]()
 
   override func perform() {
-    let sourceVC = self.sourceViewController as! UIViewController
-    let destinationVC = self.destinationViewController as! UIViewController
+    let sourceVC = self.sourceViewController 
+    let destinationVC = self.destinationViewController 
     let duration = AnimationUtilities.DURATION
 
     let transformView = UIView(frame: senderView.frame)
@@ -28,7 +28,7 @@ class DoneUnwindSegue: UIStoryboardSegue {
     sourceVC.view.insertSubview(destinationVC.view, atIndex: 0)
 
     let sourceFrame = AnimationUtilities.frameInWindowOfView(transformView)
-    var targetFrame = AnimationUtilities.frameInWindowOfView(targetView)
+    let targetFrame = AnimationUtilities.frameInWindowOfView(targetView)
     
     UIView.animateWithDuration(duration * 0.5, animations: {
       transformView.transform = AnimationUtilities.transformFromFrame(sourceFrame, toFrame: targetFrame)
