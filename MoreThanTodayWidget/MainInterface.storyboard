@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Today View Controller-->
@@ -24,35 +23,46 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="EventCell" id="19u-M9-aPs" customClass="EventCell" customModule="MoreThanTodayWidget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="50" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="19u-M9-aPs" id="DEc-7c-2P6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="11:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-B4-Fyr" userLabel="From Label">
-                                                    <rect key="frame" x="0.0" y="8" width="30" height="18.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-Vt-T7W" userLabel="To Label">
-                                                    <rect key="frame" x="0.0" y="31" width="32" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMG-EF-nxE" userLabel="Time Details">
+                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="53"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="11:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-B4-Fyr" userLabel="From Label">
+                                                            <rect key="frame" x="0.0" y="13" width="30" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PE-Vt-T7W" userLabel="To Label">
+                                                            <rect key="frame" x="0.0" y="30" width="32" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="JcE-38-PAe"/>
+                                                        <constraint firstItem="6PE-Vt-T7W" firstAttribute="leading" secondItem="iMG-EF-nxE" secondAttribute="leading" id="K05-ET-EqQ"/>
+                                                        <constraint firstItem="DRi-B4-Fyr" firstAttribute="leading" secondItem="iMG-EF-nxE" secondAttribute="leading" id="wCh-Ho-6gC"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Mb1-zJ-oJv" userLabel="Event Details">
-                                                    <rect key="frame" x="44" y="0.0" width="276" height="53.5"/>
+                                                    <rect key="frame" x="44" y="0.0" width="276" height="53"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner with Someone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDR-rP-BHM">
-                                                            <rect key="frame" x="0.0" y="8" width="276" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="8" width="276" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Restaurant Probably" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC9-hg-sgF">
-                                                            <rect key="frame" x="0.0" y="31" width="276" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="30" width="276" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -71,18 +81,15 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="6PE-Vt-T7W" firstAttribute="baseline" secondItem="hC9-hg-sgF" secondAttribute="baseline" id="4MN-cn-lsm"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mb1-zJ-oJv" secondAttribute="trailing" id="6Wm-et-zfJ"/>
-                                                <constraint firstItem="DRi-B4-Fyr" firstAttribute="leading" secondItem="DEc-7c-2P6" secondAttribute="leading" id="HH1-4x-bYR"/>
-                                                <constraint firstItem="Mb1-zJ-oJv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6PE-Vt-T7W" secondAttribute="trailing" constant="12" id="P0j-ED-hmT"/>
+                                                <constraint firstItem="DRi-B4-Fyr" firstAttribute="baseline" secondItem="UDR-rP-BHM" secondAttribute="baseline" id="BWt-6A-OcP"/>
                                                 <constraint firstItem="Mb1-zJ-oJv" firstAttribute="top" secondItem="DEc-7c-2P6" secondAttribute="top" id="TXg-Mb-0rc"/>
-                                                <constraint firstItem="6PE-Vt-T7W" firstAttribute="leading" secondItem="DEc-7c-2P6" secondAttribute="leading" id="b3b-3l-iud"/>
-                                                <constraint firstItem="DRi-B4-Fyr" firstAttribute="top" secondItem="DEc-7c-2P6" secondAttribute="topMargin" id="ccX-Dl-cJv"/>
+                                                <constraint firstItem="Mb1-zJ-oJv" firstAttribute="leading" secondItem="iMG-EF-nxE" secondAttribute="trailing" constant="12" id="WEp-9v-ZWj"/>
+                                                <constraint firstItem="iMG-EF-nxE" firstAttribute="top" secondItem="DEc-7c-2P6" secondAttribute="top" id="XHg-Ch-zcf"/>
+                                                <constraint firstItem="iMG-EF-nxE" firstAttribute="leading" secondItem="DEc-7c-2P6" secondAttribute="leading" id="eeB-Y3-nx6"/>
                                                 <constraint firstAttribute="bottom" secondItem="Mb1-zJ-oJv" secondAttribute="bottom" id="esG-uA-DmZ"/>
-                                                <constraint firstItem="Mb1-zJ-oJv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DRi-B4-Fyr" secondAttribute="trailing" constant="12" id="jm6-C9-3xI"/>
-                                                <constraint firstItem="Mb1-zJ-oJv" firstAttribute="leading" secondItem="6PE-Vt-T7W" secondAttribute="trailing" priority="750" constant="12" id="lfH-1A-bA4"/>
-                                                <constraint firstItem="Mb1-zJ-oJv" firstAttribute="leading" secondItem="DRi-B4-Fyr" secondAttribute="trailing" priority="750" constant="12" id="q1c-mr-GHJ"/>
-                                                <constraint firstItem="6PE-Vt-T7W" firstAttribute="baseline" secondItem="hC9-hg-sgF" secondAttribute="baseline" id="rOF-Qg-70X"/>
-                                                <constraint firstItem="DRi-B4-Fyr" firstAttribute="baseline" secondItem="UDR-rP-BHM" secondAttribute="baseline" id="uP8-4u-mAA"/>
+                                                <constraint firstAttribute="bottom" secondItem="iMG-EF-nxE" secondAttribute="bottom" id="foA-bK-X5S"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -90,19 +97,20 @@
                                         <connections>
                                             <outlet property="fromLabel" destination="DRi-B4-Fyr" id="W7Y-q8-uiz"/>
                                             <outlet property="locationLabel" destination="hC9-hg-sgF" id="krH-sB-Uyb"/>
+                                            <outlet property="timeWidthConstraint" destination="JcE-38-PAe" id="3WY-Mk-RWg"/>
                                             <outlet property="titleLabel" destination="UDR-rP-BHM" id="siX-Uj-2iO"/>
                                             <outlet property="toLabel" destination="6PE-Vt-T7W" id="Xzt-Mj-0Wq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="EmptyStateCell" id="bRN-pR-i4k" userLabel="Empty State Cell" customClass="EmptyStateCell" customModule="MoreThanTodayWidget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="103.5" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="104" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bRN-pR-i4k" id="zOU-b4-9mN">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're all clear!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUS-C1-SIj">
-                                                    <rect key="frame" x="0.0" y="16.5" width="116" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="116" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

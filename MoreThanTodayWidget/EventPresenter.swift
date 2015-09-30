@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class EventPresenter {
   static let ALL_DAY = NSLocalizedString("all_day", tableName: "Widget", comment: "Text shown for events which are all day")
 
   private let event: Event
 
-  private var timeFormatter: NSDateFormatter {
+  private static var timeFormatter: NSDateFormatter {
     let _formatter = NSDateFormatter()
     _formatter.dateStyle = .NoStyle
     _formatter.timeStyle = .ShortStyle
@@ -33,14 +34,31 @@ class EventPresenter {
   }
 
   var startTime: String {
-    return timeFormatter.stringFromDate(event.start)
+    return EventPresenter.timeFormatter.stringFromDate(event.start)
   }
 
   var endTime: String {
-    return timeFormatter.stringFromDate(event.end)
+    return EventPresenter.timeFormatter.stringFromDate(event.end)
+  }
+
+  static func longestSizeForEvents(events: [Event], inFont font: UIFont) -> CGFloat {
+    var longest: CGFloat = 0.0
+    for event in events {
+      let startLength = timeFormatter.stringFromDate(event.start).lengthInFont(font)
+      let endLength = timeFormatter.stringFromDate(event.end).lengthInFont(font)
+      longest = max(longest, startLength, endLength)
+    }
+    let allDayLength = ALL_DAY.lengthInFont(font)
+    return max(longest, allDayLength)
   }
 }
 
 func < (left: NSDate, right: NSDate) -> Bool {
   return left.compare(right) == .OrderedAscending
+}
+
+extension String {
+  func lengthInFont(font: UIFont) -> CGFloat {
+    return (self as NSString).sizeWithAttributes([NSFontAttributeName: font]).width
+  }
 }

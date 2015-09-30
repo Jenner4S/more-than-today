@@ -20,12 +20,22 @@ class EventCell: UITableViewCell {
     }
   }
 
+  var timeWidth: CGFloat {
+    set {
+      timeWidthConstraint.constant = newValue
+    }
+    get {
+      return timeWidthConstraint.constant
+    }
+  }
+
   private var eventPresenter: EventPresenter!
 
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var fromLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
+  @IBOutlet weak var timeWidthConstraint: NSLayoutConstraint!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)

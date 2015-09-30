@@ -13,10 +13,17 @@ import EventKit
 class TodayViewController: UIViewController, NCWidgetProviding {
   private let HEADER_HEIGHT = 42
   private let CELL_HEIGHT = 54
+  private let TIME_FONT = UIFont.systemFontOfSize(12)
 
   private let store = EKEventStore()
   private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
-  private var events = [[Event]]()
+  private var longestTime: CGFloat = 0
+  private var events = [[Event]]() {
+    didSet {
+      let eventList = events.reduce([], combine: +)
+      longestTime = EventPresenter.longestSizeForEvents(eventList, inFont: TIME_FONT)
+    }
+  }
 
   private var daysForward: Int {
     if let days = defaults?.integerForKey(DefaultsConstants.DAYS_FORWARD_KEY) {
@@ -68,7 +75,7 @@ extension TodayViewController {
   
   private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
     self.events = EventCache.eventsFromCache()
-    reloadDataWithCompletion(completionHandler, result: .NoData)
+    reloadDataWithCompletion(completionHandler, result: .NewData)
     
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
@@ -126,6 +133,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
     } else {
       let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
       cell.event = events[indexPath.section][indexPath.row]
+      cell.timeWidth = longestTime
       return cell
     }
   }
