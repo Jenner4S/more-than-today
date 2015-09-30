@@ -35,13 +35,14 @@ class SettingsButtonSegue: UIStoryboardSegue {
         view.alpha = 0
       }
     }, completion: { _ in
-      destinationVC.view.alpha = 0
-      sourceVC.view.addSubview(destinationVC.view)
+      let mockDestinationView = AnimationUtilities.getViewSnapshot(destinationVC.view)
+      sourceVC.view.addSubview(mockDestinationView)
+      mockDestinationView.alpha = 0
       UIView.animateWithDuration(duration * 0.5, animations: {
-        destinationVC.view.alpha = 1
+        mockDestinationView.alpha = 1
       }, completion: { _ in
         transformView.removeFromSuperview()
-        destinationVC.view.removeFromSuperview()
+        mockDestinationView.removeFromSuperview()
         sourceVC.presentViewController(destinationVC, animated: false, completion: nil)
       })
     })

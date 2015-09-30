@@ -21,4 +21,14 @@ class AnimationUtilities {
     let offset = CGPoint(x: target.midX - source.midX, y: target.midY - source.midY)
     return CGAffineTransform(a: scale.width, b: 0, c: 0, d: scale.height, tx: offset.x, ty: offset.y)
   }
+
+  static func getViewSnapshot(view: UIView) -> UIImageView {
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, true, UIScreen.mainScreen().scale)
+    
+    view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    
+    UIGraphicsEndImageContext()
+    return UIImageView(image: image)
+  }
 }
