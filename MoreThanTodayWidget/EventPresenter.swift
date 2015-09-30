@@ -11,8 +11,6 @@ import Foundation
 class EventPresenter {
   static let ALL_DAY = NSLocalizedString("all_day", tableName: "Widget", comment: "Text shown for events which are all day")
 
-  private let defaults = NSUserDefaults(suiteName: DefaultsConstants.SUITE_NAME)
-
   private let event: Event
 
   private var timeFormatter: NSDateFormatter {

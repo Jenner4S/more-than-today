@@ -39,20 +39,6 @@ class MainViewController: UIViewController {
       titleLabel.text = NSLocalizedString("settings_title", tableName: "Settings", comment: "Main title for settings app")
     }
   }
-  @IBOutlet weak var hourFormatLabel: UILabel!  {
-    didSet {
-      hourFormatLabel.text = NSLocalizedString("settings_hour_format_title", tableName: "Settings", comment: "Label for 24 hour format switch")
-    }
-  }
-
-  @IBOutlet weak var hourFormatSwitch: UISwitch! {
-    didSet {
-      if let defaults = defaults {
-        let on = defaults.boolForKey(DefaultsConstants.HOURS_KEY) ?? DefaultsConstants.DEFAULT_HOURS
-        hourFormatSwitch.setOn(on, animated: false)
-      }
-    }
-  }
   @IBOutlet weak var builtByLabel: UILabel! {
     didSet {
       builtByLabel.text = NSLocalizedString("settings_built_by", tableName: "Settings", comment: "I built this!")
@@ -127,11 +113,6 @@ class MainViewController: UIViewController {
 
   private func saveIntroSeen() {
     self.defaults?.setBool(true, forKey: DefaultsConstants.SAW_INTRO_KEY)
-    self.defaults?.synchronize()
-  }
-
-  @IBAction func didChangeHourFormat(sender: UISwitch) {
-    self.defaults?.setBool(sender.on, forKey: DefaultsConstants.HOURS_KEY)
     self.defaults?.synchronize()
   }
 
