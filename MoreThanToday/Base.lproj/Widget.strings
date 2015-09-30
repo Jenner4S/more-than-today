@@ -6,7 +6,7 @@
   Copyright (c) 2015 Gelber, Assaf. All rights reserved.
 */
 
-"today" = "היום";
-"tomorrow" = "מחר";
-"all_day" = "כל היום";
-"no_events" = "פנוי לגמרי!";
+"today" = "Today";
+"tomorrow" = "Tomorrow";
+"all_day" = "All day";
+"no_events" = "You're all clear!";

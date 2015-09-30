@@ -22,6 +22,8 @@
 		09754ED21B31A912007C3B95 /* DaysForwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754ED11B31A912007C3B95 /* DaysForwardViewController.swift */; };
 		09754ED41B31AA08007C3B95 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754ED31B31AA08007C3B95 /* OptionCell.swift */; };
 		09754ED61B31ADF5007C3B95 /* DaysForwardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754ED51B31ADF5007C3B95 /* DaysForwardOptions.swift */; };
+		09754EDB1B31B675007C3B95 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09754ED71B31B675007C3B95 /* LaunchScreen.xib */; };
+		09754EDC1B31B675007C3B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09754ED91B31B675007C3B95 /* Main.storyboard */; };
 		09754EDF1B31B7F4007C3B95 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EDD1B31B7F4007C3B95 /* Settings.strings */; };
 		09754EE71B31BC27007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
 		09754EE81B31BC29007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
@@ -94,11 +96,13 @@
 		09754ED11B31A912007C3B95 /* DaysForwardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysForwardViewController.swift; sourceTree = "<group>"; };
 		09754ED31B31AA08007C3B95 /* OptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		09754ED51B31ADF5007C3B95 /* DaysForwardOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysForwardOptions.swift; sourceTree = "<group>"; };
+		09754ED81B31B675007C3B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		09754EDA1B31B675007C3B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09754EDE1B31B7F4007C3B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Settings.strings; sourceTree = "<group>"; };
+		09754EE61B31BC27007C3B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Widget.strings; sourceTree = "<group>"; };
 		09754EEA1B31BC33007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		09754EEB1B31BC54007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Widget.strings; sourceTree = "<group>"; };
 		09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarsViewController.swift; sourceTree = "<group>"; };
-		097912EB1BB9C11600A55F16 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Settings.strings; sourceTree = "<group>"; };
-		097912EC1BB9C11600A55F16 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Widget.strings; sourceTree = "<group>"; };
 		098AF5871B4B0359007892F3 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		09A31E411B4480A7009B7401 /* EmptyStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
 		09CA7CF81B4D580B002B41D8 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				CABC25BC1B4DB1E400CE8551 /* animation */,
 				CABC25BD1B4DB1F500CE8551 /* elements */,
 				09CA7CFA1B4D61AC002B41D8 /* CALayer+borderUIColor.swift */,
+				09754ED91B31B675007C3B95 /* Main.storyboard */,
+				09754ED71B31B675007C3B95 /* LaunchScreen.xib */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -442,7 +448,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				he,
+				Base,
 			);
 			mainGroup = 092389991B1D9C92000CC3D6;
 			productRefGroup = 092389A31B1D9C92000CC3D6 /* Products */;
@@ -461,8 +467,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09754EDC1B31B675007C3B95 /* Main.storyboard in Resources */,
 				09754EE71B31BC27007C3B95 /* Widget.strings in Resources */,
 				09754EDF1B31B7F4007C3B95 /* Settings.strings in Resources */,
+				09754EDB1B31B675007C3B95 /* LaunchScreen.xib in Resources */,
 				092389AF1B1D9C92000CC3D6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,11 +555,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		09754ED71B31B675007C3B95 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09754ED81B31B675007C3B95 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		09754ED91B31B675007C3B95 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09754EDA1B31B675007C3B95 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		09754EDD1B31B7F4007C3B95 /* Settings.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
+				09754EDE1B31B7F4007C3B95 /* Base */,
 				09754EEA1B31BC33007C3B95 /* en */,
-				097912EB1BB9C11600A55F16 /* he */,
 			);
 			name = Settings.strings;
 			sourceTree = "<group>";
@@ -559,8 +583,8 @@
 		09754EE51B31BC27007C3B95 /* Widget.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
+				09754EE61B31BC27007C3B95 /* Base */,
 				09754EEB1B31BC54007C3B95 /* en */,
-				097912EC1BB9C11600A55F16 /* he */,
 			);
 			name = Widget.strings;
 			sourceTree = "<group>";
