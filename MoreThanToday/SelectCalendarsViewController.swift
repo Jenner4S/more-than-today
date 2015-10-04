@@ -37,10 +37,8 @@ class SelectCalendarsViewController: UIViewController {
   }
 
   private func loadCalendars() -> [EKCalendar] {
-    if let calendars = store.calendarsForEntityType(EKEntityType.Event) as? [EKCalendar] {
-      return calendars.sort { $0.title.lowercaseString < $1.title.lowercaseString }
-    }
-    return []
+    let calendars = store.calendarsForEntityType(EKEntityType.Event)
+    return calendars.sort { $0.title.lowercaseString < $1.title.lowercaseString }
   }
 
   private func getInitialValue() -> [String] {
