@@ -75,7 +75,7 @@ extension TodayViewController {
   
   private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
     self.events = EventCache.eventsFromCache()
-    reloadDataWithCompletion(completionHandler, result: .NewData)
+    reloadDataWithCompletion(completionHandler, result: .NoData)
     
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
