@@ -60,10 +60,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(headersHeight + eventsHeight + emptyHeight))
   }
 
-  private func reloadDataWithCompletion(completionHandler: (NCUpdateResult) -> Void, result: NCUpdateResult) {
+  private func reloadDataWithCompletion(completionHandler: ((NCUpdateResult) -> Void)?, result: NCUpdateResult?) {
     self.tableView.reloadData()
     self.updatePreferredContentSize()
-    completionHandler(result)
+    if completionHandler != nil {
+      completionHandler!(result!)
+    }
   }
 }
 
@@ -76,7 +78,7 @@ extension TodayViewController {
   
   private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
     self.events = EventCache.eventsFromCache()
-    reloadDataWithCompletion(completionHandler, result: .NoData)
+    reloadDataWithCompletion(nil, result: nil)
     
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
