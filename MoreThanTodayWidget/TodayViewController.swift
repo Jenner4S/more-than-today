@@ -126,7 +126,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return HEADER_HEIGHT
+    return events.isEmpty ? CGFloat.min : HEADER_HEIGHT
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
