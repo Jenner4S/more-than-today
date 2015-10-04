@@ -31,9 +31,6 @@ class SettingsButtonSegue: UIStoryboardSegue {
 
     UIView.animateWithDuration(duration * 0.5, animations: {
       transformView.transform = AnimationUtilities.transformFromFrame(sourceFrame, toFrame: targetFrame)
-      for view in self.fadeViews {
-        view.alpha = 0
-      }
     }, completion: { _ in
       let mockDestinationView = AnimationUtilities.getViewSnapshot(destinationVC.view)
       sourceVC.view.addSubview(mockDestinationView)
@@ -41,9 +38,10 @@ class SettingsButtonSegue: UIStoryboardSegue {
       UIView.animateWithDuration(duration * 0.5, animations: {
         mockDestinationView.alpha = 1
       }, completion: { _ in
-        transformView.removeFromSuperview()
-        mockDestinationView.removeFromSuperview()
-        sourceVC.presentViewController(destinationVC, animated: false, completion: nil)
+        sourceVC.presentViewController(destinationVC, animated: false, completion: {
+          transformView.removeFromSuperview()
+          mockDestinationView.removeFromSuperview()
+        })
       })
     })
   }
