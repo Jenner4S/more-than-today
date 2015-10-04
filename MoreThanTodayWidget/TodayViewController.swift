@@ -11,9 +11,8 @@ import NotificationCenter
 import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-  private let TOP_INSET_CORRECTION: CGFloat = -6
-  private let HEADER_HEIGHT = 36
-  private let CELL_HEIGHT = 54
+  private let TOP_INSET_CORRECTION = CGFloat(-6)
+  private let HEADER_HEIGHT = CGFloat(36)
   private let TIME_FONT = UIFont.systemFontOfSize(12)
 
   private let store = EKEventStore()
@@ -54,10 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func updatePreferredContentSize() {
-    let headersHeight = events.count * HEADER_HEIGHT
-    let eventsHeight = events.reduce(0, combine: { $0 + $1.count * CELL_HEIGHT })
-    let emptyHeight = events.isEmpty ? CELL_HEIGHT : 0
-    preferredContentSize = CGSize(width: preferredContentSize.width, height: CGFloat(headersHeight + eventsHeight + emptyHeight))
+    preferredContentSize = CGSize(width: preferredContentSize.width, height: tableView.contentSize.height - TOP_INSET_CORRECTION)
   }
 
   private func reloadDataWithCompletion(completionHandler: ((NCUpdateResult) -> Void)?, result: NCUpdateResult?) {
@@ -130,7 +126,7 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return CGFloat(HEADER_HEIGHT)
+    return HEADER_HEIGHT
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
