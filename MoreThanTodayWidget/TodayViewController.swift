@@ -11,7 +11,8 @@ import NotificationCenter
 import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-  private let HEADER_HEIGHT = 42
+  private let TOP_INSET_CORRECTION: CGFloat = -6
+  private let HEADER_HEIGHT = 36
   private let CELL_HEIGHT = 54
   private let TIME_FONT = UIFont.systemFontOfSize(12)
 
@@ -44,7 +45,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   @IBOutlet weak var tableView: UITableView! {
     didSet {
       tableView?.layoutMargins = UIEdgeInsetsZero
-      tableView?.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+      tableView?.contentInset = UIEdgeInsets(top: TOP_INSET_CORRECTION, left: 0, bottom: 0, right: 0)
     }
   }
 
@@ -116,15 +117,18 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
     return events.isEmpty ? 1 : events[section].count
   }
 
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return events.isEmpty ? nil : HeaderPresenter(forDate: events[section].first!.start).title
+  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    if events.isEmpty {
+      return UIView(frame: CGRectZero)
+    } else {
+      let header = DateHeader()
+      header.setDate(events[section].first!.start)
+      return header
+    }
   }
 
-  func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-    if let view = view as? UITableViewHeaderFooterView {
-      view.textLabel?.textColor = UIColor.whiteColor()
-      view.textLabel?.alpha = 0.5
-    }
+  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return CGFloat(HEADER_HEIGHT)
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
