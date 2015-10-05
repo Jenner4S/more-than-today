@@ -48,8 +48,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    fetchEventsUsingCache(true, completionHandler: nil)
+  }
+
   func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
-    fetchEvents(completionHandler)
+    fetchEventsUsingCache(false, completionHandler: completionHandler)
   }
 
   private func updatePreferredContentSize() {
@@ -57,11 +62,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func reloadDataWithCompletion(completionHandler: ((NCUpdateResult) -> Void)?, result: NCUpdateResult?) {
-    self.tableView.reloadData()
-    self.updatePreferredContentSize()
-    if completionHandler != nil {
-      completionHandler!(result!)
-    }
+    dispatch_async(dispatch_get_main_queue(), {
+      self.tableView.reloadData()
+      self.updatePreferredContentSize()
+      if let completionHandler = completionHandler, result = result {
+        completionHandler(result)
+      }
+    })
   }
 }
 
@@ -72,9 +79,11 @@ extension TodayViewController {
     store.requestAccessToEntityType(EKEntityType.Event, completion: completion)
   }
   
-  private func fetchEvents(completionHandler: (NCUpdateResult) -> Void) {
-    self.events = EventCache.eventsFromCache()
-    reloadDataWithCompletion(nil, result: nil)
+  private func fetchEventsUsingCache(useCache: Bool, completionHandler: ((NCUpdateResult) -> Void)?) {
+    if useCache {
+      self.events = EventCache.eventsFromCache()
+      reloadDataWithCompletion(nil, result: nil)
+    }
     
     requestAccessToEvents { [unowned self] granted, error in
       if granted {
@@ -88,7 +97,7 @@ extension TodayViewController {
         EventCache.cacheEvents(self.events)
         self.reloadDataWithCompletion(completionHandler, result: updateResult)
       } else {
-        completionHandler(.Failed)
+        completionHandler?(.Failed)
       }
     }
   }
