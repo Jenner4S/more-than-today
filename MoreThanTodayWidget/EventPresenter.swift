@@ -11,6 +11,7 @@ import UIKit
 
 class EventPresenter {
   static let ALL_DAY = NSLocalizedString("all_day", tableName: "Widget", comment: "Text shown for events which are all day")
+  static let DAYS_TEMPLATE = NSLocalizedString("days_template", tableName: "Widget", comment: "Template for showing the number of days")
 
   private let event: Event
 
@@ -39,6 +40,11 @@ class EventPresenter {
 
   var endTime: String {
     return EventPresenter.timeFormatter.stringFromDate(event.end)
+  }
+
+  var numberOfDays: String {
+    let days = DatesHelper.numberOfDaysFrom(event.start, to: event.end)
+    return NSString.localizedStringWithFormat(EventPresenter.DAYS_TEMPLATE, days + 1) as String
   }
 
   static func longestSizeForEvents(events: [Event], inFont font: UIFont) -> CGFloat {

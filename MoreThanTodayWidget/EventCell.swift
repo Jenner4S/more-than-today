@@ -52,7 +52,7 @@ class EventCell: UITableViewCell {
 
     if event?.allDay == true {
       fromLabel.text = EventPresenter.ALL_DAY
-      toLabel.text = nil
+      toLabel.text = eventPresenter.numberOfDays
     } else {
       fromLabel.text = eventPresenter.startTime
       toLabel.text = eventPresenter.endTime

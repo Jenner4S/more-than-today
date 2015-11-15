@@ -27,4 +27,8 @@ struct DatesHelper {
   static func startOfDayForDaysFromNow(days: Int) -> NSDate {
     return calendar.startOfDayForDate(NSDate(timeIntervalSinceNow: Double(days) * ONE_DAY))
   }
+
+  static func numberOfDaysFrom(from: NSDate, to: NSDate) -> Int {
+    return Int(to.timeIntervalSinceDate(from) / ONE_DAY)
+  }
 }

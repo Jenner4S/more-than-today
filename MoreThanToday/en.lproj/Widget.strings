@@ -9,4 +9,5 @@
 "today" = "Today";
 "tomorrow" = "Tomorrow";
 "all_day" = "All day";
+"days_template" = "%d day(s)";
 "no_events" = "You're all clear!";

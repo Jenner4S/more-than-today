@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091E7AD51BC1620800D92B78 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091E7AD41BC1620800D92B78 /* DateHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		091E7AD51BC1620800D92B78 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091E7AD41BC1620800D92B78 /* DateHeader.swift */; };
 		092389A81B1D9C92000CC3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092389A71B1D9C92000CC3D6 /* AppDelegate.swift */; };
 		092389AA1B1D9C92000CC3D6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092389A91B1D9C92000CC3D6 /* MainViewController.swift */; };
 		092389AF1B1D9C92000CC3D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092389AE1B1D9C92000CC3D6 /* Images.xcassets */; };
@@ -29,6 +29,8 @@
 		09754EE71B31BC27007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
 		09754EE81B31BC29007C3B95 /* Widget.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09754EE51B31BC27007C3B95 /* Widget.strings */; };
 		09754EED1B31BEF5007C3B95 /* SelectCalendarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */; };
+		098859F91BF8D82100DB37CB /* Widget.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 098859FB1BF8D82100DB37CB /* Widget.stringsdict */; };
+		098859FE1BF8D93400DB37CB /* Widget.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 098859FB1BF8D82100DB37CB /* Widget.stringsdict */; };
 		098AF5881B4B0359007892F3 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF5871B4B0359007892F3 /* IntroViewController.swift */; };
 		09A31E421B4480A7009B7401 /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A31E411B4480A7009B7401 /* EmptyStateCell.swift */; };
 		09CA7CF91B4D580B002B41D8 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CA7CF81B4D580B002B41D8 /* BorderButton.swift */; };
@@ -105,6 +107,8 @@
 		09754EEA1B31BC33007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		09754EEB1B31BC54007C3B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Widget.strings; sourceTree = "<group>"; };
 		09754EEC1B31BEF5007C3B95 /* SelectCalendarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarsViewController.swift; sourceTree = "<group>"; };
+		098859FA1BF8D82100DB37CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Widget.stringsdict; sourceTree = "<group>"; };
+		098859FD1BF8D87F00DB37CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Widget.stringsdict; sourceTree = "<group>"; };
 		098AF5871B4B0359007892F3 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		09A31E411B4480A7009B7401 /* EmptyStateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
 		09CA7CF81B4D580B002B41D8 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 			children = (
 				09754EDD1B31B7F4007C3B95 /* Settings.strings */,
 				09754EE51B31BC27007C3B95 /* Widget.strings */,
+				098859FB1BF8D82100DB37CB /* Widget.stringsdict */,
 			);
 			name = strings;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 			files = (
 				09754EDC1B31B675007C3B95 /* Main.storyboard in Resources */,
 				09754EE71B31BC27007C3B95 /* Widget.strings in Resources */,
+				098859F91BF8D82100DB37CB /* Widget.stringsdict in Resources */,
 				09754EDF1B31B7F4007C3B95 /* Settings.strings in Resources */,
 				09754EDB1B31B675007C3B95 /* LaunchScreen.xib in Resources */,
 				092389AF1B1D9C92000CC3D6 /* Images.xcassets in Resources */,
@@ -491,6 +497,7 @@
 			files = (
 				09754EE81B31BC29007C3B95 /* Widget.strings in Resources */,
 				092389D51B1D9D17000CC3D6 /* MainInterface.storyboard in Resources */,
+				098859FE1BF8D93400DB37CB /* Widget.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +598,15 @@
 				09754EEB1B31BC54007C3B95 /* en */,
 			);
 			name = Widget.strings;
+			sourceTree = "<group>";
+		};
+		098859FB1BF8D82100DB37CB /* Widget.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				098859FA1BF8D82100DB37CB /* Base */,
+				098859FD1BF8D87F00DB37CB /* en */,
+			);
+			name = Widget.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
