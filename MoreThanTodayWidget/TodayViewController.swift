@@ -48,6 +48,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    Crittercism.enableWithAppID(CRITTERCISM_APP_ID)
+  }
+
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     fetchEventsUsingCache(true, completionHandler: nil)

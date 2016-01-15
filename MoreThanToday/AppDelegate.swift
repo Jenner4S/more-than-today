@@ -12,5 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+
+  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    Crittercism.enableWithAppID(CRITTERCISM_APP_ID)
+    return true
+  }
 }
 
