@@ -11,8 +11,8 @@ import NotificationCenter
 import EventKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-  private let TOP_INSET_CORRECTION = CGFloat(-6)
-  private let HEADER_HEIGHT = CGFloat(36)
+  private let TOP_INSET_CORRECTION: CGFloat = -6
+  private let HEADER_HEIGHT: CGFloat = 36
   private let TIME_FONT = UIFont.systemFontOfSize(12)
 
   private let store = EKEventStore()
@@ -48,8 +48,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
   }
 
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     fetchEventsUsingCache(true, completionHandler: nil)
   }
 
@@ -85,17 +85,17 @@ extension TodayViewController {
       reloadDataWithCompletion(nil, result: nil)
     }
     
-    requestAccessToEvents { [unowned self] granted, error in
-      if granted {
+    requestAccessToEvents { [weak self] granted, error in
+      if let requiredSelf = self where granted {
         var updateResult = NCUpdateResult.NoData
-        let endDate = DatesHelper.startOfDayForDaysFromNow(self.daysForward)
-        let predicate = self.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: self.calendars)
-        let ekEvents = self.store.eventsMatchingPredicate(predicate)
-        let newEvents = self.groupEvents(ekEvents.map { Event(ekEvent: $0) })
-        updateResult = newEvents != self.events ? .NewData : .NoData
-        self.events = newEvents
-        EventCache.cacheEvents(self.events)
-        self.reloadDataWithCompletion(completionHandler, result: updateResult)
+        let endDate = DatesHelper.startOfDayForDaysFromNow(requiredSelf.daysForward)
+        let predicate = requiredSelf.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: requiredSelf.calendars)
+        let ekEvents = requiredSelf.store.eventsMatchingPredicate(predicate)
+        let newEvents = requiredSelf.groupEvents(ekEvents.map { Event(ekEvent: $0) })
+        updateResult = newEvents != requiredSelf.events ? .NewData : .NoData
+        requiredSelf.events = newEvents
+        EventCache.cacheEvents(requiredSelf.events)
+        requiredSelf.reloadDataWithCompletion(completionHandler, result: updateResult)
       } else {
         completionHandler?(.Failed)
       }
@@ -140,12 +140,13 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if events.isEmpty {
-      return tableView.dequeueReusableCellWithIdentifier("EmptyStateCell") as! EmptyStateCell
+      let cell = tableView.dequeueReusableCellWithIdentifier("EmptyStateCell") as? EmptyStateCell
+      return cell ?? UITableViewCell()
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as! EventCell
-      cell.event = events[indexPath.section][indexPath.row]
-      cell.timeWidth = longestTime
-      return cell
+      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as? EventCell
+      cell?.event = events[indexPath.section][indexPath.row]
+      cell?.timeWidth = longestTime
+      return cell ?? UITableViewCell()
     }
   }
 
