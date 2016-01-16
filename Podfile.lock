@@ -1,12 +1,15 @@
 PODS:
+  - CrittercismSDK (5.4.11)
   - Nimble (3.0.0)
   - Quick (0.8.0)
 
 DEPENDENCIES:
+  - CrittercismSDK
   - Nimble
   - Quick
 
 SPEC CHECKSUMS:
+  CrittercismSDK: bea34b91a42eebc03eac6effa81b4d761b12ed3f
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
 

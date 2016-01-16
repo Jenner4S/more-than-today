@@ -6,4 +6,4 @@
 //  Copyright © 2016 Gelber, Assaf. All rights reserved.
 //
 
-#import <Crittercism/Crittercism.h>
+#import "Crittercism.h"
