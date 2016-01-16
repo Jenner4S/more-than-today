@@ -17,3 +17,4 @@ DerivedData
 *.xccheckout
 *.ipa
 *.xcuserstate
+Pods/
