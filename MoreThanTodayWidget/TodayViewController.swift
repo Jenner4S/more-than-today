@@ -41,7 +41,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     return nil
   }
 
-  @IBOutlet weak var tableView: UITableView! {
+  @IBOutlet weak var tableView: UITableView? {
     didSet {
       tableView?.layoutMargins = UIEdgeInsetsZero
       tableView?.contentInset = UIEdgeInsets(top: TOP_INSET_CORRECTION, left: 0, bottom: 0, right: 0)
@@ -63,12 +63,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private func updatePreferredContentSize() {
-    preferredContentSize = CGSize(width: preferredContentSize.width, height: tableView.contentSize.height - TOP_INSET_CORRECTION)
+    if let tableView = tableView {
+      preferredContentSize = CGSize(width: preferredContentSize.width, height: tableView.contentSize.height - TOP_INSET_CORRECTION)
+    }
   }
 
   private func reloadDataWithCompletion(completionHandler: ((NCUpdateResult) -> Void)?, result: NCUpdateResult?) {
     dispatch_async(dispatch_get_main_queue(), {
-      self.tableView.reloadData()
+      self.tableView?.reloadData()
       self.updatePreferredContentSize()
       if let completionHandler = completionHandler, result = result {
         completionHandler(result)
