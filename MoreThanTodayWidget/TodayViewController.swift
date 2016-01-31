@@ -145,10 +145,10 @@ extension TodayViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if events.isEmpty {
-      let cell = tableView.dequeueReusableCellWithIdentifier("EmptyStateCell") as? EmptyStateCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(String(EmptyStateCell)) as? EmptyStateCell
       return cell ?? UITableViewCell()
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell") as? EventCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(String(EventCell)) as? EventCell
       cell?.event = events[indexPath.section][indexPath.row]
       cell?.timeWidth = longestTime
       return cell ?? UITableViewCell()
