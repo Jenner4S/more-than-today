@@ -13,6 +13,7 @@ import EventKit
 class TodayViewController: UIViewController, NCWidgetProviding {
   private let TOP_INSET_CORRECTION: CGFloat = -6
   private let HEADER_HEIGHT: CGFloat = 36
+  private let MAX_EVENTS = 5
   private let TIME_FONT = UIFont.systemFontOfSize(12)
 
   private let store = EKEventStore()
@@ -98,7 +99,8 @@ extension TodayViewController {
         let endDate = DatesHelper.startOfDayForDaysFromNow(requiredSelf.daysForward)
         let predicate = requiredSelf.store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: requiredSelf.calendars)
         let ekEvents = requiredSelf.store.eventsMatchingPredicate(predicate)
-        let newEvents = requiredSelf.groupEvents(ekEvents.map { Event(ekEvent: $0) })
+        let trimmedEvents = ekEvents.count > requiredSelf.MAX_EVENTS ? Array(ekEvents[0..<requiredSelf.MAX_EVENTS]) : ekEvents
+        let newEvents = requiredSelf.groupEvents(trimmedEvents.map { Event(ekEvent: $0) })
         updateResult = newEvents != requiredSelf.events ? .NewData : .NoData
         requiredSelf.events = newEvents
         EventCache.cacheEvents(requiredSelf.events)
