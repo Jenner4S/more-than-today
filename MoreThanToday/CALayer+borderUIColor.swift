@@ -11,7 +11,7 @@ import UIKit
 
 extension CALayer {
 
-  func setBorderUIColor(color: UIColor!){
+  func setBorderUIColor(color: UIColor!) {
     if let color = color {
       self.borderColor = color.CGColor
     }
