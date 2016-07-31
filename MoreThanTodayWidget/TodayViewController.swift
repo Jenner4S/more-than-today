@@ -28,14 +28,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
 
   private var daysForward: Int {
-    if let days = defaults?.integerForKey(DefaultsConstants.DAYS_FORWARD_KEY) {
+    if let defaults = defaults {
+      let days = defaults.integerForKey(DefaultsConstants.DAYS_FORWARD_KEY)
       return days > 0 ? days : DefaultsConstants.DEFAULT_DAYS_FORWARD
     }
     return DefaultsConstants.DEFAULT_DAYS_FORWARD
   }
 
   private var calendars: [EKCalendar]? {
-    if let ids = defaults?.arrayForKey(DefaultsConstants.CALENDARS_KEY) as? [String] {
+    if let defaults = defaults, ids = defaults.arrayForKey(DefaultsConstants.CALENDARS_KEY) as? [String] {
       if ids.count > 0 {
         return ids.map { self.store.calendarWithIdentifier($0)! }
       }
