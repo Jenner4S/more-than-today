@@ -1,11 +1,19 @@
 platform :ios, '8.0'
 use_frameworks!
 
-link_with 'MoreThanToday', 'MoreThanTodayWidget'
+def prod_pods
+  pod 'CrittercismSDK'
+end
 
-pod 'CrittercismSDK'
+target 'MoreThanToday' do
+  prod_pods
+end
+
+target 'MoreThanTodayWidget' do
+  prod_pods
+end
 
 target 'MoreThanTodayTests' do
-	pod 'Quick'
-	pod 'Nimble'
+  pod 'Quick'
+  pod 'Nimble'
 end

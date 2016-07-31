@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import EventKit
+import Crittercism
 
 class TodayViewController: UIViewController, NCWidgetProviding {
   private let TOP_INSET_CORRECTION: CGFloat = -6

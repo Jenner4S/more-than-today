@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crittercism
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
