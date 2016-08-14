@@ -39,7 +39,7 @@ class EventCell: UITableViewCell {
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    setup()
+    self.setup()
   }
 
   private func setup() {
