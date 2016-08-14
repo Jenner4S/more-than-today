@@ -456,6 +456,7 @@
 				09AF6A2A1C5E4E2000DE178E /* Remove Frameworks */,
 				ADF3DC5E168357833EA8D869 /* [CP] Embed Pods Frameworks */,
 				99404D96E98745D69DFE9389 /* [CP] Copy Pods Resources */,
+				0970FE681D606CB300034B7B /* Clean Frameworks Directory */,
 			);
 			buildRules = (
 			);
@@ -567,6 +568,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "APP_ID=\"42027943de524bea949e19f418fb6fb800444503\"\nAPI_KEY=\"lXVYtAcXqz7y1lcHwnsXPxNVI5X5WB8O\"\nsource ${PODS_ROOT}/CrittercismSDK/dsym_upload.sh";
+		};
+		0970FE681D606CB300034B7B /* Clean Frameworks Directory */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean Frameworks Directory";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\n  rm -fr Frameworks\nfi";
 		};
 		09AF6A2A1C5E4E2000DE178E /* Remove Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
