@@ -11,7 +11,11 @@ import Foundation
 struct DatesHelper {
   private static let ONE_DAY: NSTimeInterval = 24 * 60 * 60 // in seconds
   private static let calendar = NSCalendar.currentCalendar()
-  
+
+  static var today: NSDate {
+    return startOfDayForDaysFromNow(0)
+  }
+
   static var tomorrow: NSDate {
     return startOfDayForDaysFromNow(1)
   }

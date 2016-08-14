@@ -28,7 +28,9 @@ class HeaderPresenter {
   }()
 
   var title: String {
-    if date < DatesHelper.tomorrow {
+    if date < DatesHelper.today {
+      return dateFormatter.stringFromDate(date)
+    } else if date < DatesHelper.tomorrow {
       return HeaderPresenter.TODAY
     } else if date < DatesHelper.twoDaysFromNow {
       return HeaderPresenter.TOMORROW
